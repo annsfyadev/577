@@ -1,10 +1,5 @@
 <!--/*This is Admin(Left side - Client List) -->
-<style>
-	th.center {
-    text-align: center; /* Centers text horizontally */
-    vertical-align: middle; /* Centers text vertically */
-    padding: 10px; /* Adds spacing inside the cells */
-}
+
 </style>
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
@@ -20,8 +15,28 @@
         object-position:center center;
         border-radius:100%;
     }
+
+	th.center {
+    	text-align: center; /* Centers text horizontally */
+    	vertical-align: middle; /* Centers text vertically */
+    	padding: 10px; /* Adds spacing inside the cells */
+	}
+
+	.badge-primary {
+   	 	background-color: #28a745; /* Green color */
+    	color: white; /* Text color */
+	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    	border-radius: 8px;
+	}
+
 </style>
-<div class="card card-outline card-primary">
+<div class="card card-outline orange-top card-primary">
 	<div class="card-header">
 		<h3 class="card-title">List of Users</h3>
 	</div>
