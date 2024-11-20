@@ -51,7 +51,7 @@
 			<div class="form-group">
 				<label for="" class="control-label">System Logo</label>
 				<div class="custom-file">
-	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
+	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="png" onchange="displayImg(this,$(this))">
 	              <label class="custom-file-label" for="customFile">Choose file</label>
 	            </div>
 			</div>
@@ -61,7 +61,7 @@
 			<div class="form-group">
 				<label for="" class="control-label">Website Cover</label>
 				<div class="custom-file">
-	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="cover" onchange="displayImg2(this,$(this))">
+	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="jpg" onchange="displayImg2(this,$(this))">
 	              <label class="custom-file-label" for="customFile">Choose file</label>
 	            </div>
 			</div>

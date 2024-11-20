@@ -1,5 +1,6 @@
 <!--/*This is Admin(Left side - Client List) -->
 
+</style>
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
@@ -14,8 +15,28 @@
         object-position:center center;
         border-radius:100%;
     }
+
+	th.center {
+    	text-align: center; /* Centers text horizontally */
+    	vertical-align: middle; /* Centers text vertically */
+    	padding: 10px; /* Adds spacing inside the cells */
+	}
+
+	.badge-primary {
+   	 	background-color: #28a745; /* Green color */
+    	color: white; /* Text color */
+	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    	border-radius: 8px;
+	}
+
 </style>
-<div class="card card-outline card-primary">
+<div class="card card-outline orange-top card-primary">
 	<div class="card-header">
 		<h3 class="card-title">List of Users</h3>
 	</div>
@@ -24,8 +45,8 @@
         <div class="container-fluid">
 			<table class="table table-bordered table-stripped">
 				<colgroup>
-					<col width="10%">
-					<col width="10%">
+					<col width="3%">
+					<col width="15%">
 					<col width="15%">
 					<col width="20%">
 					<col width="20%">
@@ -34,13 +55,13 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th>No. </th>
-						<th>Profile</th>
-						<th>Code</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th class="center">No.</th>
+            			<th class="center">Profile</th>
+            			<th class="center">Code</th>
+            			<th class="center">Name</th>
+            			<th class="center">Email</th>
+            			<th class="center">Status</th>
+            			<th class="center">Action</th>
 					</tr>
 				</thead>
 				<tbody>

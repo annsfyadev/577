@@ -1,10 +1,21 @@
+<style>
+    .card-outline.orange-top {
+    border-top: 4px solid orange; /* Outline */
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow opsyenal */
+}
+</style>
+
 <?php 
 $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
 ?>
 <div class="content py-3">
     <div class="row">
         <div class="col-md-4">
-            <div class="card card-outline rounded-0 card-primary shadow">
+            <div class="card card-outline orange-top rounded-0 card-primary shadow">
                 <div class="card-body">
                     <div class="list-group">
                         <div class="list-group-item list-group-item-action">
@@ -30,7 +41,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
             
         </div>
         <div class="col-md-8">
-            <div class="card card-outline card-primary shadow rounded-0">
+            <div class="card card-outline orange-top card-primary shadow rounded-0">
                 <div class="card-body">
                     <div class="container-fluid">
                         <div class="row justify-content-center mb-3">
