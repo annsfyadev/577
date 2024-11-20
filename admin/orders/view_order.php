@@ -96,12 +96,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <div class="col-auto flex-shrink-1 flex-grow-1">
                     <h4><b><?= $prow['name'] ?></b></h4>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
-                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['price']) ?></small></p></div>
+                        <div class="col-auto px-0"><normal class="text-muted">Price: </normal></div>
+                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><normal class="text-primary"><?= format_num($prow['price']) ?></normal></p></div>
                     </div>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Quantity: </small></div>
-                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['quantity']) ?></small></p></div>
+                        <div class="col-auto px-0"><normal class="text-muted">Quantity: </normal></div>
+                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><normal class="text-primary"><?= format_num($prow['quantity']) ?></normal></p></div>
                     </div>
                 </div>
             </div>
