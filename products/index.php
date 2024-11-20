@@ -41,7 +41,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
             
         </div>
         <div class="col-md-8">
-            <div class="card card-outline orange-top card-primary shadow rounded-0">
+            <div class="card card-outline card-primary shadow rounded-0">
                 <div class="card-body">
                     <div class="container-fluid">
                         <div class="row justify-content-center mb-3">
