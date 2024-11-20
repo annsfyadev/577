@@ -6,7 +6,7 @@
        
     <hr style="height: 5px; background-color: #ff7200;">
         <div class="clear-fix mb-3"></div>
-        <h3 class="text-center"><b>Products</b></h3>
+        <h3 class="text-center"><b>Product product </b></h3>
         <center><hr class="w-25"></center>
         <div class="row" id="product_list">
             <?php 
