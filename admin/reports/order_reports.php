@@ -1,8 +1,28 @@
 <!--/*This is Admin(Left side - report) -->
 
+<style>
+    th.center {
+    	text-align: center; /* Centers text horizontally */
+    	vertical-align: middle; /* Centers text vertically */
+    	padding: 10px; /* Adds spacing inside the cells */
+	}
+
+	.badge-primary {
+   	 	background-color: #28a745; /* Green color */
+    	color: white; /* Text color */
+	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    }
+</style>
+
 <?php $month = isset($_GET['month']) ? $_GET['month'] : date("Y-m"); ?>
 <div class="content py-3">
-    <div class="card card-outline card-navy shadow rounded-0">
+    <div class="card card-outline orange-top card-navy shadow rounded-0">
         <div class="card-header">
             <h5 class="card-title">Monthly Order Reports</h5>
         </div>

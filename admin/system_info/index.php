@@ -1,6 +1,5 @@
 <!--/*This is Admin(Left side - Settings) -->
 
-
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
@@ -14,15 +13,24 @@
 		object-fit: cover;
 		border-radius: 100% 100%;
 	}
+	
 	img#cimg2{
 		height: 50vh;
 		width: 100%;
 		object-fit: contain;
 		/* border-radius: 100% 100%; */
 	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    	border-radius: 8px;
+	}
 </style>
 <div class="col-lg-12">
-	<div class="card card-outline card-primary">
+	<div class="card card-outline orange-top card-primary">
 		<div class="card-header">
 			<h5 class="card-title">System's Settings</h5>
 			<!-- <div class="card-tools">
