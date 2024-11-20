@@ -1,5 +1,11 @@
 <!--/*This is Admin(Left side - Client List) -->
-
+<style>
+	th.center {
+    text-align: center; /* Centers text horizontally */
+    vertical-align: middle; /* Centers text vertically */
+    padding: 10px; /* Adds spacing inside the cells */
+}
+</style>
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
@@ -34,13 +40,13 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th>No. </th>
-						<th>Profile</th>
-						<th>Code</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th class="center">No.</th>
+            			<th class="center">Profile</th>
+            			<th class="center">Code</th>
+            			<th class="center">Name</th>
+            			<th class="center">Email</th>
+            			<th class="center">Status</th>
+            			<th class="center">Action</th>
 					</tr>
 				</thead>
 				<tbody>
