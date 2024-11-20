@@ -1,7 +1,27 @@
 <!--/*This is Admin(Left side - Order List) -->
+<style>
+    th.center {
+    	text-align: center; /* Centers text horizontally */
+    	vertical-align: middle; /* Centers text vertically */
+    	padding: 10px; /* Adds spacing inside the cells */
+	}
+
+	.badge-primary {
+   	 	background-color: #28a745; /* Green color */
+    	color: white; /* Text color */
+	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    	border-radius: 8px;
+	}
+</style>
 
 <div class="content py-3">
-    <div class="card card-outline card-primary rounded-0 shadow">
+    <div class="card card-outline orange-top card-primary rounded-0 shadow">
         <div class="card-header">
             <h5 class="card-title"><b>Order List</b></h5>
         </div>
@@ -9,12 +29,12 @@
             <div class="w-100 overflow-auto">
             <table class="table table-bordered table-striped">
                 <colgroup>
-                    <col width="5%">
+                    <col width="3%">
+                    <col width="20%">
+                    <col width="20%">
                     <col width="15%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
+                    <col width="10%">
+                    <col width="10%">
                 </colgroup>
                 <thead>
                     <tr>
