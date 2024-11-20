@@ -35,7 +35,7 @@
                       <a href="<?php echo base_url ?>admin/?page=products" class="nav-link nav-products">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
-                          Product List
+                          Item List
                         </p>
                       </a>
                     </li>
@@ -51,7 +51,7 @@
                       <a href="<?php echo base_url ?>admin/?page=vendors" class="nav-link nav-vendors">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                          Vendor List
+                          Seller List
                         </p>
                       </a>
                     </li>
@@ -59,7 +59,7 @@
                       <a href="<?php echo base_url ?>admin/?page=clients" class="nav-link nav-clients">
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>
-                          Client List
+                          Buyer List
                         </p>
                       </a>
                     </li>
@@ -78,7 +78,7 @@
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Shop Type list
+                          Item Type list
                         </p>
                       </a>
                     </li>
