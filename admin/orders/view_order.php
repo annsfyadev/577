@@ -40,9 +40,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 	<div class="row">
         <div class="col-3 border bg-gradient-primary"><span class="">Reference Code</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($code) ? $code : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Vendor</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Seller</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($vendor) ? $vendor : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Client</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Buyer</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($client) ? $ccode.' - '.$client : '' ?></span></div>
         <div class="col-3 border bg-gradient-primary"><span class="">Delivery Address</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($delivery_address) ? $delivery_address : '' ?></span></div>

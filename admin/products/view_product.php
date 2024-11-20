@@ -38,9 +38,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="container-fluid">
 	<center><img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" alt="Product Image" class="img-thubmnail p-0 bg-gradient-gray" id="prod-img-view"></center>
 	<dl>
-		<dt class="text-muted">Vendor</dt>
+		<dt class="text-muted">Seller</dt>
         <dd class="pl-3"><?= isset($name) ? $code."-".$name : "" ?></dd>
-        <dt class="text-muted">Product</dt>
+        <dt class="text-muted">Item</dt>
         <dd class="pl-3"><?= isset($name) ? $name : "" ?></dd>
         <dt class="text-muted">Category</dt>
         <dd class="pl-3"><?= isset($category) ? $category : "" ?></dd>

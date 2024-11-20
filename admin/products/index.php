@@ -1,4 +1,24 @@
 <!--/*This is Admin(Left side - Product List) -->
+<style>
+th.center {
+    	text-align: center; /* Centers text horizontally */
+    	vertical-align: middle; /* Centers text vertically */
+    	padding: 10px; /* Adds spacing inside the cells */
+	}
+
+	.badge-primary {
+   	 	background-color: #28a745; /* Green color */
+    	color: white; /* Text color */
+	}
+
+	.card-outline.orange-top {
+   	 	border-top: 4px solid orange; /* Outline */
+    	border-left: none;
+    	border-right: none;
+    	border-bottom: none;
+    	border-radius: 8px;
+	}
+</style>
 
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
@@ -16,30 +36,30 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Products</h3>
+		<h3 class="card-title">List of Items</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
         <div class="container-fluid">
 			<table class="table table-bordered table-stripped">
 				<colgroup>
-					<col width="5%">
+					<col width="3%">
 					<col width="15%">
-					<col width="10%">
+					<col width="20%">
 					<col width="25%">
 					<col width="15%">
-					<col width="15%">
-					<col width="15%">
+					<col width="10%">
+					<col width="10%">
 				</colgroup>
 				<thead>
 					<tr class="bg-gradient-secondary">
-						<th>No. </th>
-						<th>Date Created</th>
-						<th>Image</th>
-						<th>Seller & Product</th>
-						<th>Cost</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th class="p1 text-center">No.</th>
+                        <th class="p1 text-center">Date Upload</th>
+                        <th class="p1 text-center">Image</th>
+                        <th class="p1 text-center">Seller & Product</th>
+                        <th class="p1 text-center">Cost</th>
+						<th class="p1 text-center">Status</th>
+                        <th class="p1 text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>
