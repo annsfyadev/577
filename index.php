@@ -1,5 +1,5 @@
 <?php require_once('./config.php'); ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
 <style>
   #header{
@@ -13,7 +13,7 @@
     position:absolute;
     height:calc(100%);
     width:calc(100%);
-    background-image:url(<?= validate_image($_settings->info("cover")) ?>);
+    /* background-image:url(<?= validate_image($_settings->info("cover")) ?>); */
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
@@ -24,37 +24,22 @@
     width:calc(100%);
     z-index:2;
   }
+  /* Optional: Styles for the carousel */
+  .carousel-item img {
+    width: auto; /* Full width */
+    height: auto; /* Take full height of the carousel container */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+  /* Optional: If you want to make the carousel more visually appealing */
+  .carousel-inner {
+    height: 5%; /* Ensure the carousel items stretch to fill the container */
+  }
+  }
 
-  #top-Nav a.nav-link.active {
-      color: #000;
-      font-weight: 900;
-      position: relative;
+  /* Optional: If you want to make the carousel more visually appealing */
+  .carousel-inner {
+    height: 50%; /* Ensure the carousel items stretch to fill the container */
   }
-  #top-Nav a.nav-link.active:before {
-    content: "";
-    position: absolute;
-    border-bottom: 2px solid #ff7200;
-    width: 33.33%;
-    left: 33.33%;
-    bottom: 0;
-  }
-  @media (max-width:760px){
-    #top-Nav a.nav-link.active {
-      background: #343a40db;
-      color: #fff;
-    }
-    #top-Nav a.nav-link.active:before {
-      content: "";
-      position: absolute;
-      border-bottom: 2px solid #ff7200;
-      width: 100%;
-      left: 0;
-      bottom: 0;
-    }
-    h1.w-100.text-center.site-title.px-5{
-      font-size:2.5em !important;
-    }
-  }
+
 </style>
 <?php require_once('inc/header.php') ?>
   <body class="layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto;">
@@ -65,17 +50,37 @@
       <script>
         alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
       </script>
-      <?php endif;?>    
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper pt-5" style="">
-        <?php if($page == "home" || $page == "about"): ?>
-          <div id="header" class="shadow mb-4">
-              <div class="d-flex justify-content-center h-100 w-100 align-items-center flex-column px-3">
-                  <h1 class="w-100 text-center site-title px-5"><?php echo $_settings->info('name') ?></h1>
-                  <!-- <h3 class="w-100 text-center px-5 site-subtitle"><?php echo $_settings->info('name') ?></h3> -->
-              </div>
+      <?php endif;?>   
+
+      <!-- Insert Carousel Slider above the products section -->
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./uploads/1.jpg" class="d-block w-100" alt="Image 1">
           </div>
-        <?php endif; ?>
+          <div class="carousel-item">
+            <img src="./uploads/2.jpg" class="d-block w-100" alt="Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="./uploads/3.jpg" class="d-block w-100" alt="Image 3">
+          </div>
+          <div class="carousel-item">
+            <img src="./uploads/4.jpg" class="d-block w-100" alt="Image 3">
+          </div>
+          <div class="carousel-item">
+            <img src="./uploads/5.jpg" class="d-block w-100" alt="Image 3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
         <!-- Main content -->
         <section class="content ">
           <div class="container">
