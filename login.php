@@ -1,3 +1,5 @@
+<!--/*This is Buyer Login Page -->
+
 <?php require_once('./config.php') ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
@@ -10,7 +12,7 @@
       body{
           width:calc(100%);
           height:calc(100%);
-          background-image:url('<?= validate_image($_settings->info('cover')) ?>');
+          /* background-image:url('<?= validate_image($_settings->info('cover')) ?>'); */
           background-repeat: no-repeat;
           background-size:cover;
       }
@@ -35,14 +37,14 @@
   <div class="clear-fix my-2"></div>
 <div class="login-box">
 
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <!-- Card containing the login form -->
+  <div class="card card-outline card-primary" style="max-width: 500px; margin: 0 auto; padding: 40px;">
     <div class="card-header text-center">
-      <a href="./login.php" class="h1 text-decoration-none"><b>Client Login</b></a>
+      <a href="./login.php" class="h1" style="font-size: 1.8em;">User Login</a>
     </div>
-    <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
 
+    <!-- Username input field -->
+    <div class="card-body">
       <form id="cclogin-frm" action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" autofocus placeholder="Email">
@@ -52,7 +54,9 @@
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+
+        <!-- Password input field -->
+        <div class="input-group mb-4">
           <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -60,17 +64,28 @@
             </div>
           </div>
         </div>
-        <div class="row align-item-end">
-          <div class="col-8">
-            <a href="<?= base_url ?>">Back to Site</a>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-          </div>
+
+           <!-- Center the Log In button -->
+           <div class="row justify-content-center mb-4">
+           <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" style = "font-size: 0.8em; padding: 10px 20px; width: 50%; border-radius: 25px;">Log In</button>
+            </div>
+            </div>
+
+            
+        <!-- Back to site link -->
+        <div class="row justify-content-center">
           <div class="col-12 text-center">
-          <a href="<?= base_url.'./register.php' ?>">Create an Account</a>
+            <a href="<?= base_url ?>" style="font-size: 0.8em; color: #333;">Back to Site</a>
           </div>
+        </div>
+
+      
+        <div class="row justify-content-center">
+           <div class="col-12 text-center">
+          <a href="<?= base_url.'./register.php' ?>" style="font-size: 0.8em; color: #ff7200;" >Create an Account</a>
+          </div>
+          
           <!-- /.col -->
         </div>
       </form>

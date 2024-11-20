@@ -9,7 +9,35 @@
   <script>
     start_loader()
   </script>
- 
+ <style>
+      body{
+          width:calc(100%);
+          height:calc(100%);
+          /* background-image:url('<?= validate_image($_settings->info('cover')) ?>'); */
+          background-repeat: no-repeat;
+          background-size:cover;
+      }
+      #logo-img{
+          width:15em;
+          height:15em;
+          object-fit:scale-down;
+          object-position:center center;
+      }
+      #system_name{
+        color:#fff;
+        text-shadow: 3px 3px 3px #000;
+      }
+  </style>
+   <?php if($_settings->chk_flashdata('success')): ?>
+      <script>
+        alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+      </script>
+    <?php endif;?>
+  <center><img src="<?= validate_image($_settings->info('logo')) ?>" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+<h1 class="text-center" id="system_name"><?= $_settings->info('name') ?></h1>
+  <div class="clear-fix my-2"></div>
+<div class="login-box">
+  
   <!-- Card containing the login form -->
   <div class="card card-outline card-primary" style="max-width: 500px; margin: 0 auto; padding: 40px;">
     <div class="card-header text-center">
@@ -57,6 +85,7 @@
            <div class="col-12 text-center">
           <a href="<?= base_url.'vendor/register.php' ?>" style="font-size: 0.8em; color: #ff7200;" >Create a Seller account</a>
           </div>
+
           <!-- /.col -->
         </div>
       </form>
