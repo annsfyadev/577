@@ -72,9 +72,13 @@
               <li class="nav-item">
                 <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>">Home</a>
               </li>
+
+
               <li class="nav-item">
                 <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>">Products</a>
               </li>
+
+              
               <li class="nav-item">
                 <a href="./?page=about" class="nav-link <?= isset($page) && $page =='about' ? "active" : "" ?>">About Us</a>
               </li>
@@ -89,6 +93,8 @@
               <li class="nav-item">
                 <a href="./?page=orders/my_orders" class="nav-link <?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>">My Orders</a>
               </li>
+
+
               <?php endif; ?>
             </ul>
           </div>
