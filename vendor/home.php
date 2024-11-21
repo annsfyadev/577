@@ -1,4 +1,4 @@
-<h1 class="">Welcome to <?php echo $_settings->info('name') ?> - Vendor Side</h1>
+<h1 class="">Welcome to Seller Dashboard </h1>
 <style>
   #cover-image{
     width:calc(100%);
@@ -64,9 +64,9 @@
     <!-- /.info-box -->
   </div>
 </div>
-
+<!-- 
 <div class="clear-fix mb-2">
     <div class="text-center w-100">
       <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover image" class="w-100" id="cover-image">
     </div>
-  </div>
+  </div> -->
