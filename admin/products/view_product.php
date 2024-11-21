@@ -60,7 +60,6 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 <div class="container-fluid">
     <!-- Outer Box for Product -->
     <div class="outer-box text-center">
-        <h5>Product Image</h5>
         <img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" 
              alt="Product Image" 
              class="img-thumbnail prod-img-view">
