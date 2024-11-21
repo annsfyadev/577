@@ -13,11 +13,11 @@
     position:absolute;
     height:calc(100%);
     width:calc(100%);
-    /* background-image:url(<?= validate_image($_settings->info("cover")) ?>); */
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position: center center;
-  }
+    background-image:url(<?= validate_image($_settings->info("cover")) ?>);
+    background-size: auto;
+    /* background-repeat:no-repeat;
+    background-position: center center; */
+}
   #header>div{
     position:absolute;
     height:calc(100%);
@@ -26,14 +26,14 @@
   }
 
   #top-Nav a.nav-link.active {
-      color: #ff7200;
+      color: #343a40;
       font-weight: 900;
       position: relative;
   }
   #top-Nav a.nav-link.active:before {
     content: "";
     position: absolute;
-    border-bottom: 2px solid #ff7200;
+    border-bottom: 2px solid #343a40;
     width: 33.33%;
     left: 33.33%;
     bottom: 0;
@@ -51,9 +51,9 @@
       left: 0;
       bottom: 0;
     }
-    /* h1.w-100.text-center.site-title.px-5{
-      font-size:1em !important;
-    } */
+    h1.w-100.text-center.site-title.px-5{
+      font-size:2.5em !important;
+    }
   }
 </style>
 <?php require_once('inc/header.php') ?>
@@ -65,34 +65,20 @@
       <script>
         alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
       </script>
-      <?php endif;?>    
+      <?php endif;?>   
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper pt-5">
-  <?php if($page == "home" || $page == "about"): ?>
-    <div id="header">
-        <div class="d-flex justify-content-center h-50 w-100 align-items-center flex-column px-3">
-            <h1 class=" text-center site-title px-5" 
-                style="
-                    padding-top: 100px; 
-                    font-size: 4em; 
-                    font-family: 'Georgia', serif; 
-                    color: #3e3b37; /* Dark brown color for contrast with orange */
-                    font-weight: normal; 
-                    letter-spacing: 1.5px; 
-                    text-transform: capitalize; 
-                    text-align: center;
-                    text-shadow: none;
-                    line-height: 1.2;">
-                 
-                <?php echo $_settings->info('name') ?>
-            </h1>
-        </div>
-    </div>
-  <?php endif; ?>
-</div>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper pt-0" >
+        <?php if($page == "home" || $page == "about"): ?>
+          <div id="header" class="shadow mb-4">
+              <div class="d-flex justify-content-center align-items-center flex-column ">
+                  <!-- <h1 class="w-100 text-center site-title px-5"><?php echo $_settings->info('name') ?></h1> -->
+                  <!-- <h3 class="w-100 text-center px-5 site-subtitle"><?php echo $_settings->info('name') ?></h3> -->
+              </div>
+          </div>
+        <?php endif; ?>
 
-
+        
         <!-- Main content -->
         <section class="content ">
           <div class="container">
