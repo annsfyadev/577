@@ -1,4 +1,4 @@
-<!--/*This is Admin(Left side - User List) -->
+<!--/*This is Admin(Left side - User system List create new ) -->
 
 <?php 
 $user = $conn->query("SELECT * FROM users where id ='".$_settings->userdata('id')."'");

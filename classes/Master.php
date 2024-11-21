@@ -135,7 +135,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `product_list` where vendor_id = '{$vendor_id}' and `name` = '{$name}' and delete_flag = 0 ".(!empty($id) ? " and id != '{$id}'" : ""))->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = ' Product Name Already exists.';
+			$resp['msg'] = ' Product Name already exists.';
 		}else{
 			if(empty($id)){
 				$sql = "INSERT INTO `product_list` set {$data} ";
@@ -161,7 +161,7 @@ Class Master extends DBConnection {
 					$type = mime_content_type($upload);
 					$allowed = array('image/png','image/jpeg');
 					if(!in_array($type,$allowed)){
-						$resp['msg']=" But Image failed to upload due to invalid file type.";
+						$resp['msg']=" Product list saved but Image failed due to invalid file type.";
 					}else{
 						
 				

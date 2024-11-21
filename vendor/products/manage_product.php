@@ -56,7 +56,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 					<input name="price" id="price" type="number" step="any" class="form-control form-control-sm form-control-border" value="<?php echo isset($price) ? $price : ''; ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="logo" class="control-label">Shop Logo</label>
+					<label for="logo" class="control-label">Product Image</label>
 					<input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" <?= !isset($id) ? 'required' : '' ?>>
 				</div>
 				<div class="form-group col-md-6 text-center">
