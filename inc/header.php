@@ -76,7 +76,7 @@
         background-image:url(<?php echo base_url.$_settings->info('cover') ?>);
         background-repeat: no-repeat;
         background-size: cover;
-        filter: drop-shadow(0px 7px 6px black);
+        /* filter: drop-shadow(0px 7px 6px black); */
         z-index:-1;
     }
 

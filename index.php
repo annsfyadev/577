@@ -1,9 +1,9 @@
 <?php require_once('./config.php'); ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
 <style>
   #header{
-    height:50vh;
+    height:40vh;
     width:calc(100%);
     position:relative;
     top:-1em;
@@ -24,22 +24,37 @@
     width:calc(100%);
     z-index:2;
   }
-  /* Optional: Styles for the carousel */
-  .carousel-item img {
-    width: auto; /* Full width */
-    height: auto; /* Take full height of the carousel container */
-    object-fit: cover; /* Ensure images cover the container without distortion */
-  /* Optional: If you want to make the carousel more visually appealing */
-  .carousel-inner {
-    height: 5%; /* Ensure the carousel items stretch to fill the container */
-  }
-  }
 
-  /* Optional: If you want to make the carousel more visually appealing */
-  .carousel-inner {
-    height: 50%; /* Ensure the carousel items stretch to fill the container */
+  #top-Nav a.nav-link.active {
+      color: #ff7200;
+      font-weight: 900;
+      position: relative;
   }
-
+  #top-Nav a.nav-link.active:before {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #ff7200;
+    width: 33.33%;
+    left: 33.33%;
+    bottom: 0;
+  }
+  @media (max-width:760px){
+    #top-Nav a.nav-link.active {
+      background: #343a40db;
+      color: #fff;
+    }
+    #top-Nav a.nav-link.active:before {
+      content: "";
+      position: absolute;
+      border-bottom: 2px solid #343a40;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+    }
+    /* h1.w-100.text-center.site-title.px-5{
+      font-size:1em !important;
+    } */
+  }
 </style>
 <?php require_once('inc/header.php') ?>
   <body class="layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto;">
@@ -50,36 +65,33 @@
       <script>
         alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
       </script>
-      <?php endif;?>   
+      <?php endif;?>    
 
-      <!-- Insert Carousel Slider above the products section -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./uploads/1.jpg" class="d-block w-100" alt="Image 1">
-          </div>
-          <div class="carousel-item">
-            <img src="./uploads/2.jpg" class="d-block w-100" alt="Image 2">
-          </div>
-          <div class="carousel-item">
-            <img src="./uploads/3.jpg" class="d-block w-100" alt="Image 3">
-          </div>
-          <div class="carousel-item">
-            <img src="./uploads/4.jpg" class="d-block w-100" alt="Image 3">
-          </div>
-          <div class="carousel-item">
-            <img src="./uploads/5.jpg" class="d-block w-100" alt="Image 3">
-          </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper pt-5">
+  <?php if($page == "home" || $page == "about"): ?>
+    <div id="header">
+        <div class="d-flex justify-content-center h-50 w-100 align-items-center flex-column px-3">
+            <h1 class=" text-center site-title px-5" 
+                style="
+                    padding-top: 100px; 
+                    font-size: 4em; 
+                    font-family: 'Georgia', serif; 
+                    color: #3e3b37; /* Dark brown color for contrast with orange */
+                    font-weight: normal; 
+                    letter-spacing: 1.5px; 
+                    text-transform: capitalize; 
+                    text-align: center;
+                    text-shadow: none;
+                    line-height: 1.2;">
+                 
+                <?php echo $_settings->info('name') ?>
+            </h1>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    </div>
+  <?php endif; ?>
+</div>
+
 
         <!-- Main content -->
         <section class="content ">

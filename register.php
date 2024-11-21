@@ -49,8 +49,6 @@
                     <a href="./register.php" class="h1"><b>Create an Account</b></a>
                     </div>
                     <div class="card-body">
-                    <p class="login-box-msg">Sign in to start your session</p>
-
                     <form id="cregister-frm" action="" method="post">
                         <input type="hidden" name="id">
                         <div class="row">
@@ -74,7 +72,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="contact" class="control-label">Contact #</label>
+                                <label for="contact" class="control-label">Contact No.</label>
                                 <input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" required>
                             </div>
                         </div>

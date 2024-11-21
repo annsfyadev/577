@@ -1,3 +1,5 @@
+<!--This is topNavigation in user dashboard -->
+
 <style>
   .user-img{
         position: absolute;
@@ -27,7 +29,7 @@
           padding-top: calc(3.2em) !important
       }
       </style>
-      <nav class="w-100 px-2 py-1 position-fixed top-0 bg-dark text-light" id="login-nav">
+      <nav class="w-100 px-2 py-1 position-fixed top-0 bg-orange text-light" id="login-nav">
         <div class="d-flex justify-content-between w-100">
           <div>
             <p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p>
@@ -35,22 +37,22 @@
           <div>
             <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') ==3): ?>
               
-              <!-- <span class="mx-2">Howdy, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
+              <!-- <span class="mx-2">Hi, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
               <span class="mx-1"><a href="<?= base_url.'classes/Login.php?f=logout_client' ?>"><i class="fa fa-power-off"></i></a></span> -->
               <div class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-toggle text-reset text-decoration-none" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>" class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar">  <span class="mx-2">Howdy, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
+                <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>" class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar">  <span class="mx-2">Hi, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="./?page=manage_account">Manage Account</a>
+                  <a class="dropdown-item" href="./vendor">Seller Login</a> <!-- This coding go terus to seller login-->
                   <a class="dropdown-item" href="<?= base_url.'classes/Login.php?f=logout_client' ?>">Logout</a>
                 </div>
               </div>
             <?php else: ?>
               <a href="./login.php" class="mx-2 text-light text-decoration-none font-weight-bolder">User Login</a> 
-              <a href="./vendor" class="mx-2 text-light text-decoration-none font-weight-bolder">Seller Login</a>  
-              <a href="./admin" class="mx-2 text-light text-decoration-none font-weight-bolder">Admin Login</a> 
-              
+              <!-- <a href="./vendor" class="mx-2 text-light text-decoration-none font-weight-bolder">Seller Login</a>  
+              <a href="./admin" class="mx-2 text-light text-decoration-none font-weight-bolder">Admin Login</a>  -->
               
               <?php endif; ?>
           </div>

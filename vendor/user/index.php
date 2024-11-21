@@ -35,7 +35,7 @@ foreach($user->fetch_array() as $k =>$v){
 							<input type="text" id="shop_owner" name="shop_owner" class="form-control form-control-sm form-control-border" value="<?= isset($shop_owner) ? $shop_owner : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="contact" class="control-label">Contact #</label>
+							<label for="contact" class="control-label">Contact No. </label>
 							<input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" value="<?= isset($contact) ? $contact : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
