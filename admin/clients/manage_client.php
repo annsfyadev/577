@@ -1,4 +1,4 @@
-<!--/*This is Admin( Top button - My Account) -->
+<!--/*This is Admin( edit action) -->
 
 <?php 
 if(isset($_GET['id'])){

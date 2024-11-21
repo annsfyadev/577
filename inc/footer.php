@@ -71,6 +71,7 @@
           <b><?php echo $_settings->info('short_name') ?> (by: <a href="mailto:oretnom23@gmail.com" target="blank">oretnom23</a> )</b> v1.0
         </div> <!-->
       </div>
+
       </footer>
     </div>
     <!-- ./wrapper -->

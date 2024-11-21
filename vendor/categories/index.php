@@ -1,3 +1,5 @@
+<!--This is seller dashboard, index.php-->
+
 <?php if($_settings->chk_flashdata('success')): ?>
 <script>
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
@@ -24,7 +26,7 @@
 				</colgroup>
 				<thead>
 					<tr class="bg-gradient-secondary">
-						<th>#</th>
+						<th>No. </th>
 						<th>Date Created</th>
 						<th>Name</th>
 						<th>Description</th>

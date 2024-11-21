@@ -16,12 +16,15 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th class="p1 text-center">#</th>
-                        <th class="p1 text-center">Date Ordered</th>
-                        <th class="p1 text-center">Ref. Code</th>
-                        <th class="p1 text-center">Total Amount</th>
-                        <th class="p1 text-center">Status</th>
-                        <th class="p1 text-center">Action</th>
+        <th style="text-align: center;">No.</th>
+        <th style="text-align: center;">Date Ordered</th>
+        <th style="text-align: center;">Ref. Code</th>
+        <th style="text-align: center;">Total Amount</th>
+        <th style="text-align: center;">Status</th>
+        <th style="text-align: center;">Action</th>
+       
+    </tr>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -30,12 +33,13 @@
                     $orders = $conn->query("SELECT * FROM `order_list` where vendor_id = '{$_settings->userdata('id')}' order by `status` asc,unix_timestamp(date_created) desc ");
                     while($row = $orders->fetch_assoc()):
                     ?>
-                    <tr>
-                        <td class="px-2 py-1 align-middle text-center"><?= $i++; ?></td>
-                        <td class="px-2 py-1 align-middle"><?= date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
-                        <td class="px-2 py-1 align-middle"><?= $row['code'] ?></td>
-                        <td class="px-2 py-1 align-middle text-right"><?= format_num($row['total_amount']) ?></td>
-                        <td class="px-2 py-1 align-middle text-center">
+        <tr><td class="px-2 py-1 align-middle" style="text-align: center;"><?= $i++; ?></td>
+        <td class="px-2 py-1 align-middle" style="text-align: center;"><?= date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
+        <td class="px-2 py-1 align-middle" style="text-align: center;"><?= $row['code'] ?></td>
+        <td class="px-2 py-1 align-middle" style="text-align: center;"><?= format_num($row['total_amount']) ?></td>
+        <td class="px-2 py-1 align-middle" style="text-align: center;">
+
+
                             <?php 
                                 switch($row['status']){
                                     case 0:

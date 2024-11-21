@@ -1,143 +1,141 @@
-<!--/*This is Admin(Left side - Product List) -->
+<!--/*This is Admin(Left side - Product List) --> 
 <style>
-th.center {
-    	text-align: center; /* Centers text horizontally */
-    	vertical-align: middle; /* Centers text vertically */
-    	padding: 10px; /* Adds spacing inside the cells */
-	}
+    th.center {
+        text-align: center; /* Centers text horizontally */
+        vertical-align: middle; /* Centers text vertically */
+        padding: 10px; /* Adds spacing inside the cells */
+    }
 
-	.badge-primary {
-   	 	background-color: #28a745; /* Green color */
-    	color: white; /* Text color */
-	}
+    .badge-primary {
+        background-color: #28a745; /* Green color */
+        color: white; /* Text color */
+    }
 
-	.card-outline.orange-top {
-   	 	border-top: 4px solid orange; /* Outline */
-    	border-left: none;
-    	border-right: none;
-    	border-bottom: none;
-    	border-radius: 8px;
-	}
+    .card-outline.orange-top {
+        border-top: 4px solid orange; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+
+    .product-img {
+        width: calc(100%);
+        height: auto;
+        max-width: 5em;
+        object-fit: scale-down;
+        object-position: center center;
+    }
 </style>
 
-<?php if($_settings->chk_flashdata('success')): ?>
+<?php if ($_settings->chk_flashdata('success')): ?>
 <script>
-	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+    alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success');
 </script>
-<?php endif;?>
-<style>
-	.product-img{
-		width: calc(100%);
-		height: auto;
-		max-width: 5em;
-		object-fit:scale-down;
-		object-position:center center;
-	}
-</style>
+<?php endif; ?>
+
 <div class="card card-outline orange-top card-primary">
-	<div class="card-header">
-		<h3 class="card-title">List of Items</h3>
-	</div>
-	<div class="card-body">
-		<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">List of Items</h3>
+    </div>
+    <div class="card-body">
         <div class="container-fluid">
-			<table class="table table-bordered table-stripped">
-				<colgroup>
-					<col width="3%">
-					<col width="15%">
-					<col width="20%">
-					<col width="25%">
-					<col width="15%">
-					<col width="10%">
-					<col width="10%">
-				</colgroup>
-				<thead>
-					<tr class="bg-gradient-secondary">
-						<th class="p1 text-center">No.</th>
-                        <th class="p1 text-center">Date Upload</th>
-                        <th class="p1 text-center">Image</th>
-                        <th class="p1 text-center">Seller & Product</th>
-                        <th class="p1 text-center">Cost</th>
-						<th class="p1 text-center">Status</th>
-                        <th class="p1 text-center">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php 
-					$i = 1;
-						$qry = $conn->query("SELECT p.*,v.code, v.shop_name as `vendor` from `product_list` p inner join vendor_list v on p.vendor_id = v.id where p.delete_flag = 0 order by p.`name` asc ");
-						while($row = $qry->fetch_assoc()):
-					?>
-						<tr>
-							<td class="text-center"><?php echo $i++; ?></td>
-							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
-							<td class="text-center"><img src="<?= validate_image($row['image_path']) ?>" alt="Product Image" class="border border-gray img-thumbnail product-img"></td>
-							<td>
-								<div class="border-bottom text-truncate"><?= $row['code'].'-'.$row['vendor'] ?></div>
-								<div class="text-truncate"><?= $row['name'] ?></div>
-							</td>
-							<td class="text-right"><?php echo format_num($row['price']) ?></td>
-							<td class="text-center">
-                                <?php if($row['status'] == 1): ?>
+            <table class="table table-bordered table-striped">
+                <colgroup>
+                    <col width="3%">
+                    <col width="15%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <thead>
+                    <tr class="bg-gradient-secondary">
+                        <th class="center">No.</th>
+                        <th class="center">Date Upload</th>
+                        <th class="center">Image</th>
+                        <th class="center">Seller</th>
+                        <th class="center">Product</th>
+                        <th class="center">Cost</th>
+                        <th class="center">Status</th>
+                        <th class="center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    $i = 1;
+                    $qry = $conn->query("SELECT p.*, v.code, v.shop_name as `vendor` FROM `product_list` p INNER JOIN vendor_list v ON p.vendor_id = v.id WHERE p.delete_flag = 0 ORDER BY p.`name` ASC");
+                    while ($row = $qry->fetch_assoc()): ?>
+                        <tr>
+                            <td class="text-center"><?php echo $i++; ?></td>
+                            <td class="text-center"><?php echo date("Y-m-d H:i", strtotime($row['date_created'])); ?></td>
+                            <td class="text-center"><img src="<?= validate_image($row['image_path']); ?>" alt="Product Image" class="border border-gray img-thumbnail product-img"></td>
+                            <td class="text-center"><?= $row['code'] . ' - ' . ucwords($row['vendor']); ?></td>
+                            <td class="text-center"><?= ucwords($row['name']); ?></td>
+                            <td class="text-center"><?php echo format_num($row['price']); ?></td>
+                            <td class="text-center">
+                                <?php if ($row['status'] == 1): ?>
                                     <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
                                 <?php else: ?>
                                     <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
                                 <?php endif; ?>
                             </td>
-							<td align="center">
-								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
-				                    <span class="sr-only">Toggle Dropdown</span>
-				                  </button>
-				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
-				                  </div>
-							</td>
-						</tr>
-					<?php endwhile; ?>
-				</tbody>
-			</table>
-		</div>
-		</div>
-	</div>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    Action
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id']; ?>"><span class="fa fa-eye text-dark"></span> View</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
 <script>
-	$(document).ready(function(){
-		$('#create_new').click(function(){
-			uni_modal('Add New Product',"products/manage_product.php",'large')
-		})
-		$('.view_data').click(function(){
-			uni_modal('View Product Details',"products/view_product.php?id="+$(this).attr('data-id'),'large')
-		})
-		$('.edit_data').click(function(){
-			uni_modal('Update Product',"products/manage_product.php?id="+$(this).attr('data-id'),'large')
-		})
-		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this product permanently?","delete_product",[$(this).attr('data-id')])
-		})
-		$('table th,table td').addClass('align-middle px-2 py-1')
-		$('.table').dataTable();
-	})
-	function delete_product($id){
-		start_loader();
-		$.ajax({
-			url:_base_url_+"classes/Master.php?f=delete_product",
-			method:"POST",
-			data:{id: $id},
-			dataType:"json",
-			error:err=>{
-				console.log(err)
-				alert_toast("An error occured.",'error');
-				end_loader();
-			},
-			success:function(resp){
-				if(typeof resp== 'object' && resp.status == 'success'){
-					location.reload();
-				}else{
-					alert_toast("An error occured.",'error');
-					end_loader();
-				}
-			}
-		})
-	}
+    $(document).ready(function() {
+        $('#create_new').click(function() {
+            uni_modal('Add New Product', "products/manage_product.php", 'large');
+        });
+        $('.view_data').click(function() {
+            uni_modal('View Product Details', "products/view_product.php?id=" + $(this).attr('data-id'), 'large');
+        });
+        $('.edit_data').click(function() {
+            uni_modal('Update Product', "products/manage_product.php?id=" + $(this).attr('data-id'), 'large');
+        });
+        $('.delete_data').click(function() {
+            _conf("Are you sure to delete this product permanently?", "delete_product", [$(this).attr('data-id')]);
+        });
+        $('table th,table td').addClass('align-middle px-2 py-1');
+        $('.table').dataTable();
+    });
+
+    function delete_product($id) {
+        start_loader();
+        $.ajax({
+            url: _base_url_ + "classes/Master.php?f=delete_product",
+            method: "POST",
+            data: { id: $id },
+            dataType: "json",
+            error: err => {
+                console.log(err);
+                alert_toast("An error occurred.", 'error');
+                end_loader();
+            },
+            success: function(resp) {
+                if (typeof resp == 'object' && resp.status == 'success') {
+                    location.reload();
+                } else {
+                    alert_toast("An error occurred.", 'error');
+                    end_loader();
+                }
+            }
+        });
+    }
 </script>

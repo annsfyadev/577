@@ -1,3 +1,5 @@
+<!--Ni sidebar yg dkt tepi tu-->
+
 </style>
 <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
@@ -31,22 +33,34 @@
                         </p>
                       </a>
                     </li> 
+
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=clients" class="nav-link nav-clients">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                          User List
+                        </p>
+                      </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=products" class="nav-link nav-products">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
-                          Item List
+                          Prodcut List
                         </p>
                       </a>
                     </li>
+
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=orders" class="nav-link nav-orders">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
-                          Order List
+                          User Orders
                         </p>
                       </a>
                     </li>
+
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=vendors" class="nav-link nav-vendors">
                         <i class="nav-icon fas fa-users"></i>
@@ -55,14 +69,7 @@
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=clients" class="nav-link nav-clients">
-                        <i class="nav-icon fas fa-user-friends"></i>
-                        <p>
-                          Buyer List
-                        </p>
-                      </a>
-                    </li>
+
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=reports/order_reports" class="nav-link nav-reports_order_reports">
@@ -72,13 +79,14 @@
                         </p>
                       </a>
                     </li>
+
                     <?php if($_settings->userdata('type') == 1): ?>
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Item Type list
+                          Shop Type
                         </p>
                       </a>
                     </li>
@@ -86,7 +94,7 @@
                       <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                          User List
+                          Admin 
                         </p>
                       </a>
                     </li>
