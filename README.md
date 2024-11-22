@@ -1,1 +1,1 @@
-CSC577
+CSC577 - Software Engineering : Theories and Principles
