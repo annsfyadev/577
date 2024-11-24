@@ -1,8 +1,8 @@
 </style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
+      <aside class="main-sidebar sidebar-dark-teal elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>vendor/" class="brand-link bg-primary text-sm">
+        <a href="<?php echo base_url ?>vendor/" class="brand-link bg-teal text-sm">
         <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 1.6rem;height: 1.6rem;max-height: unset">
         <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
         </a>

@@ -1,3 +1,19 @@
+<style>
+	 th.center {
+        text-align: center; /* Centers text horizontally */
+        vertical-align: middle; /* Centers text vertically */
+        padding: 10px; /* Adds spacing inside the cells */
+    }
+
+	.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>
+
 <!--This is seller dashboard, index.php-->
 
 <?php if($_settings->chk_flashdata('success')): ?>
@@ -5,11 +21,11 @@
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
 </script>
 <?php endif;?>
-<div class="card card-outline card-primary">
+<div class="card card-outline teal-top card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Categories</h3>
+		<h3 class="card-title"> <b>List of Categories </b></h3>
 		<div class="card-tools">
-			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span> Create New</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -24,14 +40,14 @@
 					<col width="15%">
 					<col width="15%">
 				</colgroup>
-				<thead>
-					<tr class="bg-gradient-secondary">
-						<th>No. </th>
-						<th>Date Created</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Status</th>
-						<th>Action</th>
+				<thead style="background-color: #C1E1C1; color: black;">
+					<tr>
+						<th class = "center">No. </th>
+						<th class = "center">Date Created</th>
+						<th class = "center">Name</th>
+						<th class = "center">Description</th>
+						<th class = "center">Status</th>
+						<th class = "center">Action</th>
 					</tr>
 				</thead>
 				<tbody>
