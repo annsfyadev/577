@@ -12,7 +12,7 @@
                             <textarea name="delivery_address" id="delivery_address" rows="4" class="form-control rounded-0" required><?= $_settings->userdata('address') ?></textarea>
                         </div>
                         <div class="form-group text-right">
-                            <button class="btn btn-flat btn-default btn-sm bg-navy">Place Order</button>
+                            <button class="btn btn-flat btn-primary btn-sm bg-primary">Place Order</button>
                         </div>
                     </form>
                 </div>
@@ -31,7 +31,7 @@
 
                     ?>
                     <div class="col-12 border item">
-                        <b class="text-muted"><small><?= $vrow['code']." - ".$vrow['shop_name'] ?></small></b>
+                        <b class="text-muted"><normal><?= $vrow['code']." - ".$vrow['shop_name'] ?></normal></b>
                         <div class="text-right"><b><?= format_num($vtotal) ?></b></div>
                     </div>
                     <?php endwhile; ?>
