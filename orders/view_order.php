@@ -36,13 +36,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </style>
 <div class="container-fluid">
 	<div class="row">
-        <div class="col-3 border bg-gradient-primary"><span class="">Reference Code</span></div>
+        <div class="col-3 border bg-gradient-teal"><span class="">Reference Code</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($code) ? $code : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Vendor</span></div>
+        <div class="col-3 border bg-gradient-teal"><span class="">Vendor</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($shop_name) ? $vcode.' - '.$shop_name : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Delivery Address</span></div>
+        <div class="col-3 border bg-gradient-teal"><span class="">Delivery Address</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($delivery_address) ? $delivery_address : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Status</span></div>
+        <div class="col-3 border bg-gradient-teal"><span class="">Status</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
             <?php 
             $status = isset($status) ? $status : '';
@@ -89,12 +89,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <div class="col-auto flex-shrink-1 flex-grow-1">
                     <h4><b><?= $prow['name'] ?></b></h4>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
-                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['price']) ?></small></p></div>
+                        <div class="col-auto px-0"><normal class="text-muted">Price: </normal></div>
+                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><normal class="text-primary"><?= format_num($prow['price']) ?></normal></p></div>
                     </div>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Qty: </small></div>
-                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['quantity']) ?></small></p></div>
+                        <div class="col-auto px-0"><normal class="text-muted">Qty: </normal></div>
+                        <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><noemal class="text-primary"><?= format_num($prow['quantity']) ?></normal></p></div>
                     </div>
                 </div>
             </div>

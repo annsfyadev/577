@@ -1,5 +1,15 @@
+<style>
+.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>
+
 <div class="content py-3">
-    <div class="card card-outline card-primary rounded-0 shadow">
+    <div class="card card-outline teal-top card-primary rounded-0 shadow">
         <div class="card-header">
             <h5 class="card-title"><b>My Orders</b></h5>
         </div>
@@ -12,11 +22,11 @@
                     <col width="20%">
                     <col width="20%">
                     <col width="20%">
-                    <col width="20%">
+                    <col width="10%">
                 </colgroup>
-                <thead>
+                <thead style="background-color: #C1E1C1; color: black;">
                     <tr>
-                        <th class="p1 text-center">#</th>
+                        <th class="p1 text-center">No</th>
                         <th class="p1 text-center">Date Ordered</th>
                         <th class="p1 text-center">Ref. Code</th>
                         <th class="p1 text-center">Total Amount</th>
