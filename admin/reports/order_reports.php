@@ -12,17 +12,18 @@
     	color: white; /* Text color */
 	}
 
-	.card-outline.orange-top {
-   	 	border-top: 4px solid orange; /* Outline */
-    	border-left: none;
-    	border-right: none;
-    	border-bottom: none;
+    .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
     }
 </style>
 
 <?php $month = isset($_GET['month']) ? $_GET['month'] : date("Y-m"); ?>
 <div class="content py-3">
-    <div class="card card-outline orange-top card-navy shadow rounded-0">
+    <div class="card card-outline teal-top card-navy shadow rounded-0">
         <div class="card-header">
             <h5 class="card-title">Monthly Order Reports</h5>
         </div>
