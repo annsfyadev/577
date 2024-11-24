@@ -11,8 +11,8 @@
         color: white; /* Text color */
     }
 
-    .card-outline.orange-top {
-        border-top: 4px solid orange; /* Outline */
+    .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
         border-left: none;
         border-right: none;
         border-bottom: none;
@@ -34,7 +34,7 @@
 </script>
 <?php endif; ?>
 
-<div class="card card-outline orange-top card-primary">
+<div class="card card-outline teal-top card-primary">
     <div class="card-header">
         <h3 class="card-title">List of Sellers</h3>
     </div>

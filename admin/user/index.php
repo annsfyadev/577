@@ -1,3 +1,13 @@
+<style>
+.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>
+
 <!--/*This is Admin(Left side - User system List create new ) -->
 
 <?php 
@@ -11,7 +21,7 @@ foreach($user->fetch_array() as $k =>$v){
 	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
 </script>
 <?php endif;?>
-<div class="card card-outline card-primary">
+<div class="card card-outline teal-top card-primary">
 	<div class="card-body">
 		<div class="container-fluid">
 			<div id="msg"></div>

@@ -1,10 +1,20 @@
+<style>
+      .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>
+
 <?php if ($_settings->chk_flashdata('success')): ?>
 <script>
     alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success');
 </script>
 <?php endif; ?>
 
-<div class="card card-outline card-primary">
+<div class="card card-outline teal-top card-primary">
     <div class="card-header">
         <h3 class="card-title">List of Shop Types</h3>
         <div class="card-tools">
