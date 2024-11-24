@@ -1,3 +1,13 @@
+<style>
+	.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>	
+
 <?php 
 $user = $conn->query("SELECT * FROM vendor_list where id ='".$_settings->userdata('id')."'");
 foreach($user->fetch_array() as $k =>$v){
@@ -19,7 +29,7 @@ foreach($user->fetch_array() as $k =>$v){
       }
 </style>
 <div class="content py-3"></div>
-	<div class="card card-outline rounded-0 card-primary shadow">
+	<div class="card card-outline teal-top rounded-0 card-primary shadow">
 		<div class="card-body">
 			<div class="container-fluid">
 				<div id="msg"></div>

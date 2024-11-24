@@ -11,10 +11,19 @@
 		object-fit: scale-down;
 		object-position: center center;
 	}
+
+	.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+	
 </style>
-<div class="card card-outline card-primary">
+<div class="card card-outline teal-top card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Products</h3>
+		<h3 class="card-title"> <b> List of Products </b> </h3>
 		<div class="card-tools">
 			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span> Create New</a>
 		</div>
@@ -31,8 +40,8 @@
 					<col width="15%">
 					<col width="15%">
 				</colgroup>
-				<thead>
-					<tr class="bg-gradient-secondary">
+				<thead style="background-color: #C1E1C1; color: black;">
+					<tr>
 						<th style="text-align: center;">No.</th>
 						<th style="text-align: center;">Date Created</th>
 						<th style="text-align: center;">Image</th>

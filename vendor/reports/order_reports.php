@@ -1,8 +1,18 @@
+<style>
+.card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+</style>
+
 <?php $month = isset($_GET['month']) ? $_GET['month'] : date("Y-m"); ?>
 <div class="content py-3">
-    <div class="card card-outline card-navy shadow rounded-0">
+    <div class="card card-outline teal-top card-navy shadow rounded-0">
         <div class="card-header">
-            <h5 class="card-title">Monthly Order Reports</h5>
+            <h5 class="card-title"><b>Monthly Order Reports</b></h5>
         </div>
         <div class="card-body">
             <div class="container-fluid">
@@ -34,9 +44,9 @@
                             <col width="20%">
                             <col width="15%">
                         </colgroup>
-                        <thead>
-                            <tr class="">
-                                <th class="text-center align-middle py-1">#</th>
+                        <thead style="background-color: #C1E1C1; color: black;">
+                            <tr>
+                                <th class="text-center align-middle py-1">No</th>
                                 <th class="text-center align-middle py-1">Date Created</th>
                                 <th class="text-center align-middle py-1">Ref. Code</th>
                                 <th class="text-center align-middle py-1">Client</th>
