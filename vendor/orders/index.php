@@ -14,16 +14,15 @@
                     <col width="20%">
                     <col width="20%">
                 </colgroup>
-                <thead>
+                <thead style="background-color: #C1E1C1; color: black;">
                     <tr>
-        <th style="text-align: center;">No.</th>
-        <th style="text-align: center;">Date Ordered</th>
-        <th style="text-align: center;">Ref. Code</th>
-        <th style="text-align: center;">Total Amount</th>
-        <th style="text-align: center;">Status</th>
-        <th style="text-align: center;">Action</th>
-       
-    </tr>
+                        <th style="text-align: center;">No.</th>
+                        <th style="text-align: center;">Date Ordered</th>
+                        <th style="text-align: center;">Ref. Code</th>
+                        <th style="text-align: center;">Total Amount</th>
+                        <th style="text-align: center;">Status</th>
+                        <th style="text-align: center;">Action</th>
+                    </tr>
                         
                     </tr>
                 </thead>
