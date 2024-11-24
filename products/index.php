@@ -8,13 +8,13 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            .card-outline.orange-top {
-            border-top: 4px solid orange; /* Outline */
+        .card-outline.teal-top {
+            border-top: 3px solid teal; /* Outline */
             border-left: none;
             border-right: none;
             border-bottom: none;
             border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow opsyenal */
+        }
 
             #imageUpload {
             border: 2px dashed #ccc;
@@ -43,12 +43,12 @@
         <div class="content py-3">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card card-outline orange-top rounded-0 card-primary shadow">
+                    <div class="card card-outline teal-top rounded-0 card-teal shadow">
                         <div class="card-body">
                             <div class="list-group">
                                 <div class="list-group-item list-group-item-action">
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input custom-control-input-primary custom-control-input-outline cat_all" type="checkbox" id="cat_all" <?= !is_array($category_ids) && $category_ids =='all' ? "checked" : "" ?>>
+                                        <input class="custom-control-input custom-control-input-teal custom-control-input-outline cat_all" type="checkbox" id="cat_all" <?= !is_array($category_ids) && $category_ids =='all' ? "checked" : "" ?>>
                                         <label for="cat_all" class="custom-control-label"> All</label>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                 ?>
                                 <div class="list-group-item list-group-item-action">
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input custom-control-input-primary custom-control-input-outline cat_item" type="checkbox" id="cat_item<?= $row['id'] ?>" <?= in_array($row['id'],explode(',',$category_ids)) ? "checked" : '' ?> value="<?= $row['id'] ?>">
+                                        <input class="custom-control-input custom-control-input-teal custom-control-input-outline cat_item" type="checkbox" id="cat_item<?= $row['id'] ?>" <?= in_array($row['id'],explode(',',$category_ids)) ? "checked" : '' ?> value="<?= $row['id'] ?>">
                                         <label for="cat_item<?= $row['id'] ?>" class="custom-control-label"> <?= $row['name'] ?></label>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                     
                 </div>
                 <div class="col-md-8">
-                    <div class="card card-outline orange-top card-primary shadow rounded-0">
+                    <div class="card card-outline teal-top card-teal shadow rounded-0">
                         <div class="card-body">
                             <div class="container-fluid">
                                 <div class="row justify-content-center mb-3">
