@@ -6,9 +6,17 @@
         object-fit:scale-down;
         object-position:center center
     }
+
+    .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
 </style>
 <div class="content py-3">
-    <div class="card card-outline card-primary rounded-0 shadow-0">
+    <div class="card card-outline teal-top card-primary rounded-0 shadow-0">
         <div class="card-header">
             <h5 class="card-title">Cart List</h5>
         </div>
@@ -39,11 +47,11 @@
                             <div class="col-auto flex-shrink-1 flex-grow-1">
                                 <h4><b><?= $prow['name'] ?></b></h4>
                                 <div class="d-flex">
-                                    <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
-                                    <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['price']) ?></small></p></div>
+                                    <div class="col-auto px-0"><normal class="text-muted">Price: </normal></div>
+                                    <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><normal class="text-primary"><?= format_num($prow['price']) ?></normal></p></div>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="col-auto px-0"><small class="text-muted">Qty: </small></div>
+                                    <div class="col-auto px-0"><normal class="text-muted">Qty: </normal></div>
                                     <div class="col-auto">
                                         <div class="" style="width:10em">
                                             <div class="input-group input-group-sm">
