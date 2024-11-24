@@ -29,7 +29,7 @@
           padding-top: calc(3.2em) !important
       }
       </style>
-      <nav class="w-100 px-2 py-1 position-fixed top-0 bg-orange text-light" id="login-nav">
+      <nav class="w-100 px-2 py-1 position-fixed top-0 bg-teal text-light" id="login-nav">
         <div class="d-flex justify-content-between w-100">
           <div>
             <p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p>
