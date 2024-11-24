@@ -58,8 +58,8 @@
                             <col width="15%">
                             <col width="15%">
                         </colgroup>
-                        <thead>
-                            <tr class="">
+                        <thead style="background-color: #C1E1C1; color: black;">
+                            <tr>
                                 <th class="text-center align-middle py-1">No. </th>
                                 <th class="text-center align-middle py-1">Date Created</th>
                                 <th class="text-center align-middle py-1">Ref. Code</th>

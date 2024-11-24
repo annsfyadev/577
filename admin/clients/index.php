@@ -49,7 +49,7 @@
                     <col width="15%">
                     <col width="10%">
                 </colgroup>
-                <thead>
+                <thead style="background-color: #C1E1C1; color: black;">
                     <tr>
                         <th class="center">No.</th>
                         <th class="center">Profile</th>

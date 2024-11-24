@@ -50,8 +50,8 @@
                     <col width="10%">
                     <col width="10%">
                 </colgroup>
-                <thead>
-                    <tr class="bg-gradient-secondary">
+                <thead style="background-color: #C1E1C1; color: black;">
+                    <tr>
                         <th class="center">No.</th>
                         <th class="center">Date Upload</th>
                         <th class="center">Image</th>

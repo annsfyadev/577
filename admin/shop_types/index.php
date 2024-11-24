@@ -31,8 +31,8 @@
                     <col width="25%">
                     <col width="20%">
                 </colgroup>
-                <thead>
-                    <tr class="bg-gradient-secondary">
+                <thead style="background-color: #C1E1C1; color: black;">
+                    <tr>
                         <th class="text-center">No.</th>
                         <th class="text-center">Date Created</th>
                         <th class="text-center">Shop Type</th>
