@@ -30,9 +30,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     #prod-img-holder:hover #prod-img{
         transform:scale(1.2);
     }
+
+    .card-outline.teal-top {
+            border-top: 3px solid teal; /* Outline */
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 8px;
+        }
 </style>
 <div class="content py-3">
-    <div class="card card-outline card-primary rounded-0 shadow">
+    <div class="card card-outline teal-top card-primary rounded-0 shadow">
         <div class="card-header">
             <h5 class="card-title"><b>Product Details</b></h5>
         </div>
@@ -48,16 +56,16 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <h3><b><?= $name ?></b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><small class="text-muted">Vendor: </small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $vendor ?></small></p></div>
+                            <div class="col-auto px-0"><normal class="text-muted">Vendor: </normal></div>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><normal class="text-muted"><?= $vendor ?></normal></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Category: </small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $category ?></small></p></div>
+                            <div class="col-auto px-0"><normal class="text-muted">Category: </normal></div>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><normal class="text-muted"><?= $category ?></normal></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($price) ?></small></p></div>
+                            <div class="col-auto px-0"><normal class="text-muted">Price: </normal></div>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><normal class="text-primary"><?= format_num($price) ?></normal></p></div>
                         </div>
                         <div class="row align-items-end">
                             <div class="col-md-3 form-group">
