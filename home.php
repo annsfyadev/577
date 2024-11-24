@@ -40,6 +40,20 @@
       height: 200px; /* Set a fixed height for images */
       object-fit: cover; /* Ensure images fill container */
     }
+
+    .btn-green {
+        background-color: #C1E1C1;
+        color: black;
+        border: none;
+        border-radius: 50px; /* Rounded-pill effect */
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .btn-green:hover {
+        background-color: #9AA581 ; /* Optional hover effect */
+    }
+  
 </style>
 </head>
 <body class="layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto;">
@@ -77,7 +91,7 @@
     <!-- Products Section -->
     <div class="col-lg-12 py-5 products-section">
       <div class="container-fluid">
-        <hr style="height: 5px; background-color: #ff7200;">
+        <hr style="height: 4px; background-color: #ADD0B3;">
         <div class="clear-fix mb-3"></div>
         <h3 class="text-center"><b>Products</b></h3>
         <center><hr class="w-25"></center>
@@ -113,7 +127,7 @@
         </div>
         <div class="clear-fix mb-2"></div>
         <div class="text-center">
-          <a href="./?page=products" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12">Explore More Products</a>
+          <a href="./?page=products" class="btn btn-large btn-green rounded-pill col-lg-3 col-md-5 col-sm-12">Explore More Products</a>
         </div>
       </div>
     </div>
