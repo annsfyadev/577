@@ -1,5 +1,15 @@
+<style>
+    .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+  </style>  
+
 <div class="content py-3">
-    <div class="card card-outline card-primary rounded-0 shadow">
+    <div class="card card-outline teal-top card-primary rounded-0 shadow">
         <div class="card-header">
             <h5 class="card-title"><b>Order List</b></h5>
         </div>
