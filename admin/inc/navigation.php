@@ -47,7 +47,7 @@
                       <a href="<?php echo base_url ?>admin/?page=products" class="nav-link nav-products">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
-                          Prodcut List
+                          Resouce List
                         </p>
                       </a>
                     </li>
