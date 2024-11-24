@@ -56,7 +56,7 @@
                       <a href="<?php echo base_url ?>admin/?page=orders" class="nav-link nav-orders">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
-                          User Orders
+                          Order List
                         </p>
                       </a>
                     </li>
@@ -86,7 +86,7 @@
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Shop Type
+                          Resource Type
                         </p>
                       </a>
                     </li>
