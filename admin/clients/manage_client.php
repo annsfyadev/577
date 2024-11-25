@@ -30,16 +30,17 @@ if(isset($_GET['id'])){
           object-position:center center
       }
 
-	  .card-outline.orange-top {
-   	 	border-top: 4px solid orange; /* Outline */
-    	border-left: none;
-    	border-right: none;
-    	border-bottom: none;
-    	border-radius: 8px;
-	}
+	  .card-outline.teal-top {
+        border-top: 3px solid teal; /* Outline */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 8px;
+    }
+	
 </style>
 <div class="content py-3"></div>
-	<div class="card card-outline orange-top rounded-0 card-primary shadow">
+	<div class="card card-outline teal-top rounded-0 card-primary shadow">
 		<div class="card-body">
 			<div class="container-fluid">
 				<div id="msg"></div>
