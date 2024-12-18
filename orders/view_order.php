@@ -1,7 +1,7 @@
 <?php
 require_once('./../config.php');
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT o.*,v.shop_name,v.code as vcode from `order_list` o inner join vendor_list v on o.vendor_id = v.id where o.id = '{$_GET['id']}' ");
+    $qry = $conn->query("SELECT o.*,v.shop_name,v.code as vcode from `order` o inner join seller v on o.seller_id = v.id where o.id = '{$_GET['id']}' ");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
@@ -76,7 +76,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     <div id="order-list" class="row">
     <?php 
         $gtotal = 0;
-        $products = $conn->query("SELECT o.*, p.name as `name`, p.price,p.image_path FROM `order_items` o inner join product_list p on o.product_id = p.id where o.order_id='{$id}' order by p.name asc");
+        $products = $conn->query("SELECT o.*, p.name as `name`, p.price,p.image_path FROM `order_items` o inner join resources p on o.resources_id = p.id where o.order_id='{$id}' order by p.name asc");
         while($prow = $products->fetch_assoc()):
             $total = $prow['price'] * $prow['quantity'];
             $gtotal += $total;
@@ -84,7 +84,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <div class="col-12 border">
             <div class="d-flex align-items-center p-2">
                 <div class="col-2 text-center">
-                    <a href="./?page=products/view_product&id=<?= $prow['product_id'] ?>"><img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray"></a>
+                    <a href="./?page=products/view_product&id=<?= $prow['resources_id'] ?>"><img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray"></a>
                 </div>
                 <div class="col-auto flex-shrink-1 flex-grow-1">
                     <h4><b><?= $prow['name'] ?></b></h4>
