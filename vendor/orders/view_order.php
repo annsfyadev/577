@@ -2,9 +2,9 @@
 require_once('./../../config.php');
 
 if (isset($_GET['id']) && $_GET['id'] > 0) {
-    $qry = $conn->query("SELECT o.*, c.code as ccode, CONCAT(c.lastname, ', ', c.firstname, ' ', COALESCE(c.middlename, '')) as client 
-                          FROM `order_list` o 
-                          INNER JOIN client_list c ON o.client_id = c.id 
+    $qry = $conn->query("SELECT o.*, c.code as ccode, CONCAT(c.lastname, ', ', c.firstname, ' ', COALESCE(c.middlename, '')) as customer 
+                          FROM `order` o 
+                          INNER JOIN customer c ON o.customer_id = c.id 
                           WHERE o.id = '{$_GET['id']}'");
 
     if ($qry->num_rows > 0) {
@@ -60,8 +60,8 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
             <div class="col-9"><?= isset($code) ? $code : '' ?></div>
         </div>
         <div class="row">
-            <div class="col-3"><strong>Client:</strong></div>
-            <div class="col-9"><?= isset($client) ? $ccode . ' - ' . $client : '' ?></div>
+            <div class="col-3"><strong>Customer:</strong></div>
+            <div class="col-9"><?= isset($customer) ? $ccode . ' - ' . $customer : '' ?></div>
         </div>
         <div class="row">
             <div class="col-3"><strong>Delivery Address:</strong></div>
@@ -97,7 +97,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         $gtotal = 0;
         $products = $conn->query("SELECT o.*, p.name as `name`, p.price, p.image_path 
                                    FROM `order_items` o 
-                                   INNER JOIN product_list p ON o.product_id = p.id 
+                                   INNER JOIN resources p ON o.order_id = p.id 
                                    WHERE o.order_id = '{$id}' 
                                    ORDER BY p.name ASC");
 
@@ -107,7 +107,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         ?>
         <div class="row border mb-2">
             <div class="col-2 text-center">
-                <a href="./?page=products/view_product&id=<?= $prow['product_id'] ?>">
+                <a href="./?page=products/view_product&id=<?= $prow['order_id'] ?>">
                     <img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray">
                 </a>
             </div>
