@@ -1,16 +1,16 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT  p.*, v.shop_name as vendor, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
+    $qry = $conn->query("SELECT  p.*, v.shop_name as customer, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
         }
     }else{
-        echo "<script> alert('Unkown Product ID.'); location.replace('./?page=products') </script>";
+        echo "<script> alert('Unkown Resources ID.'); location.replace('./?page=products') </script>";
         exit;
     }
 }else{
-    echo "<script> alert('Product ID is required.'); location.replace('./?page=products') </script>";
+    echo "<script> alert('Resources ID is required.'); location.replace('./?page=products') </script>";
     exit;
 }
 ?>
@@ -42,7 +42,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="content py-3">
     <div class="card card-outline teal-top card-primary rounded-0 shadow">
         <div class="card-header">
-            <h5 class="card-title"><b>Product Details</b></h5>
+            <h5 class="card-title"><b>Resources Details</b></h5>
         </div>
         <div class="card-body">
             <div class="container-fluid">
@@ -56,8 +56,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <h3><b><?= $name ?></b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><normal class="text-muted">Vendor: </normal></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><normal class="text-muted"><?= $vendor ?></normal></p></div>
+                            <div class="col-auto px-0"><normal class="text-muted">Seller: </normal></div>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><normal class="text-muted"><?= $seller ?></normal></p></div>
                         </div>
                         <div class="d-flex">
                             <div class="col-auto px-0"><normal class="text-muted">Category: </normal></div>
