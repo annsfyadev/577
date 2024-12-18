@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" id="product_list">
+                                <div class="row" id="resources">
                                     <?php 
                                     $swhere = "";
                                     if(!empty($category_ids)):
@@ -121,7 +121,7 @@
                                         $swhere .= " and (p.name LIKE '%{$_GET['search']}%' or p.description LIKE '%{$_GET['search']}%' or c.name LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
                                     }
 
-                                    $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
+                                    $products = $conn->query("SELECT p.*, v.shop_name as seller, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
                                     while($row = $products->fetch_assoc()):
                                     ?>
                                     <div class="col-lg-4 col-md-6 col-sm-12 product-item">
@@ -132,8 +132,8 @@
                                             <div class="card-body border-top border-gray">
                                                 <h5 class="card-title text-truncate w-100"><?= $row['name'] ?></h5>
                                                 <div class="d-flex w-100">
-                                                    <div class="col-auto px-0"><small class="text-muted">Vendor: </small></div>
-                                                    <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['vendor'] ?></small></p></div>
+                                                    <div class="col-auto px-0"><small class="text-muted">Seller: </small></div>
+                                                    <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['seller'] ?></small></p></div>
                                                 </div>
                                                 <div class="d-flex">
                                                     <div class="col-auto px-0"><small class="text-muted">Category: </small></div>
