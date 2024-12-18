@@ -216,7 +216,7 @@ Class Master extends DBConnection {
 
 	}
 	function add_to_cart(){
-		$_POST['client_id'] = $this->settings->userdata('id');
+		$_POST['customer_id'] = $this->settings->userdata('id');
 		extract($_POST);
 		$data = "";
 		foreach($_POST as $k =>$v){
@@ -225,11 +225,11 @@ Class Master extends DBConnection {
 				$data .= " `{$k}`='{$this->conn->real_escape_string($v)}' ";
 			}
 		}
-		$check = $this->conn->query("SELECT * FROM cart_list where product_id = '{$product_id}' && client_id = '{$client_id}'")->num_rows;
+		$check = $this->conn->query("SELECT * FROM cart where resources_id = '{$resources_id}' && customer_id = '{$customer_id}'")->num_rows;
 		if($check > 0){
-			$sql = "UPDATE cart_list set quantity = quantity + {$quantity} where product_id = '{$product_id}' && client_id = '{$client_id}' ";
+			$sql = "UPDATE cart set quantity = quantity + {$quantity} where resources_id = '{$resources_id}' && customer_id = '{$customer_id}' ";
 		}else{
-			$sql = "INSERT INTO cart_list set {$data}";
+			$sql = "INSERT INTO cart set {$data}";
 		}
 		$save = $this->conn->query($sql);
 		if($save){
@@ -246,7 +246,7 @@ Class Master extends DBConnection {
 	}
 	function update_cart_qty(){
 		extract($_POST);
-		$update_cart = $this->conn->query("UPDATE `cart_list` set `quantity` = '{$quantity}' where id = '{$cart_id}'");
+		$update_cart = $this->conn->query("UPDATE `cart` set `quantity` = '{$quantity}' where id = '{$cart_id}'");
 		if($update_cart){
 			$resp['status'] = 'success';
 			$resp['msg'] = ' Product Quantity has updated successfully';
@@ -262,7 +262,7 @@ Class Master extends DBConnection {
 	}
 	function delete_cart(){
 		extract($_POST);
-		$del = $this->conn->query("DELETE FROM `cart_list` where id = '{$id}'");
+		$del = $this->conn->query("DELETE FROM `cart` where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
 			$resp['msg'] = " Cart Item has been deleted successfully.";

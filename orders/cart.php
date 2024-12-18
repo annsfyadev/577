@@ -25,7 +25,7 @@
                 <div class="row">
                 <?php 
                 $gtotal = 0;
-                $vendors = $conn->query("SELECT * FROM `vendor_list` where id in (SELECT vendor_id from product_list where id in (SELECT product_id FROM `cart_list` where client_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
+                $vendors = $conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
                 while($vrow=$vendors->fetch_assoc()):                
                 ?>
                     <div class="col-12 border">
@@ -34,7 +34,7 @@
                     <div class="col-12 border p-0">
                         <?php 
                         $vtotal = 0;
-                        $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
+                        $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart` c inner join resources p on c.resources_id = p.id where c.customer_id = '{$_settings->userdata('id')}' and p.seller_id = '{$vrow['id']}' order by p.name asc");
                         while($prow = $products->fetch_assoc()):
                             $total = $prow['price'] * $prow['quantity'];
                             $gtotal += $total;
@@ -42,7 +42,7 @@
                         ?>
                         <div class="d-flex align-items-center border p-2">
                             <div class="col-2 text-center">
-                                <a href="./?page=products/view_product&id=<?= $prow['product_id'] ?>"><img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray"></a>
+                                <a href="./?page=products/view_product&id=<?= $prow['resources_id'] ?>"><img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray"></a>
                             </div>
                             <div class="col-auto flex-shrink-1 flex-grow-1">
                                 <h4><b><?= $prow['name'] ?></b></h4>

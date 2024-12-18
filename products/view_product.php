@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT  p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
+    $qry = $conn->query("SELECT  p.*, v.shop_name as vendor, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
@@ -94,7 +94,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         $.ajax({
             url:_base_url_+'classes/Master.php?f=add_to_cart',
             method:'POST',
-            data:{product_id:pid,quantity:qty},
+            data:{resources_id:pid,quantity:qty},
             dataType:'json',
             error:err=>{
                 console.error(err)

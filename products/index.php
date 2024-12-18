@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <?php 
-                                $categories = $conn->query("SELECT * FROM `category_list` where delete_flag = 0 and status = 1 order by `name` asc ");
+                                $categories = $conn->query("SELECT * FROM `category` where delete_flag = 0 and status = 1 order by `name` asc ");
                                 while($row = $categories->fetch_assoc()):
                                 ?>
                                 <div class="list-group-item list-group-item-action">
@@ -121,7 +121,7 @@
                                         $swhere .= " and (p.name LIKE '%{$_GET['search']}%' or p.description LIKE '%{$_GET['search']}%' or c.name LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
                                     }
 
-                                    $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
+                                    $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
                                     while($row = $products->fetch_assoc()):
                                     ?>
                                     <div class="col-lg-4 col-md-6 col-sm-12 product-item">

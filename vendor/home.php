@@ -17,7 +17,7 @@
         <span class="info-box-text">Total Categories</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM category_list where delete_flag = 0 and vendor_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM category where delete_flag = 0 and seller_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -35,7 +35,7 @@
         <span class="info-box-text">Total Products</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM product_list where delete_flag = 0 and  vendor_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM resources where delete_flag = 0 and  seller_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -53,7 +53,7 @@
         <span class="info-box-text">Total Pending Orders</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM order_list where `status` = 0 and  vendor_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM `order` where `status` = 0 and  seller_id = '{$_settings->userdata('id')}' ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>

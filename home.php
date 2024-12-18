@@ -97,7 +97,7 @@
         <center><hr class="w-25"></center>
         <div class="row" id="product_list">
           <?php 
-            $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 order by RAND() limit 4");
+            $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `resources` p inner join seller v on p.seller_id = v.id inner join category c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 order by RAND() limit 4");
             while($row = $products->fetch_assoc()):
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12 product-item">

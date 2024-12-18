@@ -39,7 +39,7 @@
                 <tbody>
                     <?php 
                     $i = 1;
-                    $orders = $conn->query("SELECT * FROM `order_list` where vendor_id = '{$_settings->userdata('id')}' order by `status` asc,unix_timestamp(date_created) desc ");
+                    $orders = $conn->query("SELECT * FROM `order` where seller_id = '{$_settings->userdata('id')}' order by `status` asc,unix_timestamp(date_created) desc ");
                     while($row = $orders->fetch_assoc()):
                     ?>
         <tr><td class="px-2 py-1 align-middle" style="text-align: center;"><?= $i++; ?></td>

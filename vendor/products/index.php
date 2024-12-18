@@ -54,7 +54,7 @@
 				<tbody>
 					<?php 
 					$i = 1;
-					$qry = $conn->query("SELECT * FROM `product_list` WHERE delete_flag = 0 AND `vendor_id` = '{$_settings->userdata('id')}' ORDER BY `name` ASC");
+					$qry = $conn->query("SELECT * FROM `resources` WHERE delete_flag = 0 AND `seller_id` = '{$_settings->userdata('id')}' ORDER BY `name` ASC");
 					while($row = $qry->fetch_assoc()):
 					?>
 						<tr>
