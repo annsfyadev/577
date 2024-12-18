@@ -55,7 +55,7 @@
                     <tbody>
                         <?php 
                         $i = 1;
-                        $orders = $conn->query("SELECT * FROM `order_list` ORDER BY `status` ASC, UNIX_TIMESTAMP(date_created) DESC");
+                        $orders = $conn->query("SELECT * FROM `order` ORDER BY `status` ASC, UNIX_TIMESTAMP(date_created) DESC");
                         while ($row = $orders->fetch_assoc()):
                         ?>
                         <tr>

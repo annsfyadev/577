@@ -64,11 +64,11 @@
                 <tbody>
                     <?php 
                     $i = 1;
-                    $qry = $conn->query("SELECT * FROM `vendor_list` WHERE delete_flag = 0 ORDER BY shop_name ASC");
+                    $qry = $conn->query("SELECT * FROM `seller` WHERE delete_flag = 0 ORDER BY shop_name ASC");
                     while ($row = $qry->fetch_assoc()): ?>
                         <tr>
                             <td class="text-center"><?php echo $i++; ?></td>
-                            <td class="text-center"><img src="<?php echo validate_image($row['avatar']); ?>" class="img-avatar img-thumbnail p-0 border-2" alt="vendor_avatar"></td>
+                            <td class="text-center"><img src="<?php echo validate_image($row['avatar']); ?>" class="img-avatar img-thumbnail p-0 border-2" alt="seller_avatar"></td>
                             <td class="text-center"><?php echo ($row['code']); ?></td>
                             <td class="text-center"><?php echo ucwords($row['shop_name']); ?></td>
                             <td class="text-center"><?php echo ucwords($row['shop_owner']); ?></td>
@@ -101,7 +101,7 @@
 <script>
     $(document).ready(function() {
         $('.delete_data').click(function() {
-            _conf("Are you sure to delete this vendor permanently?", "delete_vendor", [$(this).attr('data-id')]);
+            _conf("Are you sure to delete this seller permanently?", "delete_vendor", [$(this).attr('data-id')]);
         });
         $('.table').dataTable();
     });

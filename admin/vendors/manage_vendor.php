@@ -1,13 +1,13 @@
 <?php 
 if(isset($_GET['id'])){
-	$vendor = $conn->query("SELECT * FROM vendor_list where id ='".$_GET['id']."'");
+	$vendor = $conn->query("SELECT * FROM seller where id ='".$_GET['id']."'");
 	if($vendor->num_rows > 0){
 		$res = $vendor->fetch_array();
 		foreach($res as $k =>$v){
 			$$k = $v;
 		}
 	}else{
-		echo '<script> alert("Unknown Vendor"); location.replace("./?page=vendors")</script>';
+		echo '<script> alert("Unknown Seller"); location.replace("./?page=vendors")</script>';
 	}
 
 }else{
@@ -40,7 +40,7 @@ if(isset($_GET['id'])){
 							<input type="text" id="shop_owner" name="shop_owner" class="form-control form-control-sm form-control-border" value="<?= isset($shop_owner) ? $shop_owner : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="contact" class="control-label">Contact #</label>
+							<label for="contact" class="control-label">Contact</label>
 							<input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" value="<?= isset($contact) ? $contact : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">

@@ -6,10 +6,10 @@ require_once('./../../config.php');
 if (isset($_GET['id']) && $_GET['id'] > 0) {
     // Fetch product details
     $qry = $conn->query("
-        SELECT p.*, c.name AS `category`, v.code, v.shop_name AS `vendor`
-        FROM `product_list` p
-        INNER JOIN category_list c ON p.category_id = c.id
-        INNER JOIN vendor_list v ON p.vendor_id = v.id
+        SELECT p.*, c.name AS `category`, v.code, v.shop_name AS `seller`
+        FROM `resources` p
+        INNER JOIN category c ON p.category_id = c.id
+        INNER JOIN seller v ON p.seller_id = v.id
         WHERE p.id = '{$_GET['id']}' AND p.delete_flag = 0
     ");
 
@@ -58,16 +58,16 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 </style>
 
 <div class="container-fluid">
-    <!-- Outer Box for Product -->
+    <!-- Outer Box for Resources -->
     <div class="outer-box text-center">
         <img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" 
              alt="Product Image" 
              class="img-thumbnail prod-img-view">
     </div>
 
-    <!-- Product Details -->
+    <!-- Resources Details -->
     <div class="outer-box">
-        <h5>Product Information</h5>
+        <h5>Resources Information</h5>
         <div class="row">
             <div class="col-3"><strong>Seller:</strong></div>
             <div class="col-9"><?= isset($name) ? $code . " - " . $name : "N/A" ?></div>

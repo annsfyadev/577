@@ -36,7 +36,7 @@
 
 <div class="card card-outline teal-top card-primary">
     <div class="card-header">
-        <h3 class="card-title">List of Items</h3>
+        <h3 class="card-title">List of Resources</h3>
     </div>
     <div class="card-body">
         <div class="container-fluid">
@@ -56,7 +56,7 @@
                         <th class="center">Date Upload</th>
                         <th class="center">Image</th>
                         <th class="center">Seller</th>
-                        <th class="center">Product</th>
+                        <th class="center">Resources</th>
                         <th class="center">Cost</th>
                         <th class="center">Status</th>
                         <th class="center">Action</th>
@@ -65,13 +65,13 @@
                 <tbody>
                     <?php 
                     $i = 1;
-                    $qry = $conn->query("SELECT p.*, v.code, v.shop_name as `vendor` FROM `product_list` p INNER JOIN vendor_list v ON p.vendor_id = v.id WHERE p.delete_flag = 0 ORDER BY p.`name` ASC");
+                    $qry = $conn->query("SELECT p.*, v.code, v.shop_name as `seller` FROM `Resources` p INNER JOIN seller v ON p.seller_id = v.id WHERE p.delete_flag = 0 ORDER BY p.`name` ASC");
                     while ($row = $qry->fetch_assoc()): ?>
                         <tr>
                             <td class="text-center"><?php echo $i++; ?></td>
                             <td class="text-center"><?php echo date("Y-m-d H:i", strtotime($row['date_created'])); ?></td>
                             <td class="text-center"><img src="<?= validate_image($row['image_path']); ?>" alt="Product Image" class="border border-gray img-thumbnail product-img"></td>
-                            <td class="text-center"><?= $row['code'] . ' - ' . ucwords($row['vendor']); ?></td>
+                            <td class="text-center"><?= $row['code'] . ' - ' . ucwords($row['seller']); ?></td>
                             <td class="text-center"><?= ucwords($row['name']); ?></td>
                             <td class="text-center"><?php echo format_num($row['price']); ?></td>
                             <td class="text-center">

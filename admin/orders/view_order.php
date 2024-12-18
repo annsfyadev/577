@@ -7,11 +7,11 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     // Fetch order details
     $qry = $conn->query("
         SELECT o.*, c.code AS ccode, 
-               CONCAT(c.lastname, ', ', c.firstname, ' ', COALESCE(c.middlename, '')) AS client, 
-               CONCAT(v.code, '-', v.shop_name) AS `vendor`
-        FROM `order_list` o 
-        INNER JOIN client_list c ON o.client_id = c.id 
-        INNER JOIN vendor_list v ON o.vendor_id = v.id 
+               CONCAT(c.lastname, ', ', c.firstname, ' ', COALESCE(c.middlename, '')) AS customer, 
+               CONCAT(v.code, '-', v.shop_name) AS `seller`
+        FROM `order` o 
+        INNER JOIN customer c ON o.customer_id = c.id 
+        INNER JOIN seller v ON o.seller_id = v.id 
         WHERE o.id = '{$_GET['id']}'
     ");
 
@@ -81,11 +81,11 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
             </div>
             <div class="row">
                 <div class="col-3"><strong>Seller:</strong></div>
-                <div class="col-9 font-weight-bolder"><?= isset($vendor) ? $vendor : '' ?></div>
+                <div class="col-9 font-weight-bolder"><?= isset($seller) ? $seller : '' ?></div>
             </div>
             <div class="row">
-                <div class="col-3"><strong>Buyer:</strong></div>
-                <div class="col-9 font-weight-bolder"><?= isset($client) ? $ccode . ' - ' . $client : '' ?></div>
+                <div class="col-3"><strong>Customer:</strong></div>
+                <div class="col-9 font-weight-bolder"><?= isset($customer) ? $ccode . ' - ' . $customer : '' ?></div>
             </div>
             <div class="row">
                 <div class="col-3"><strong>Delivery Address:</strong></div>
@@ -135,8 +135,8 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $gtotal = 0;
                 $products = $conn->query("
                     SELECT o.*, p.name AS `name`, p.price, p.image_path 
-                    FROM `order_items` o 
-                    INNER JOIN product_list p ON o.product_id = p.id 
+                    FROM `order` o 
+                    INNER JOIN resources p ON o.resources_id = p.id 
                     WHERE o.order_id='{$id}' 
                     ORDER BY p.name ASC
                 ");
@@ -147,7 +147,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                     <div class="col-12">
                         <div class="d-flex align-items-center p-2">
                             <div class="col-2 text-center">
-                                <a href="./?page=products/view_product&id=<?= $prow['product_id'] ?>">
+                                <a href="./?page=products/view_product&id=<?= $prow['resources_id'] ?>">
                                     <img src="<?= validate_image($prow['image_path']) ?>" 
                                          alt="" class="img-center prod-img border bg-gradient-gray">
                                 </a>
