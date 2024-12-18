@@ -49,7 +49,7 @@
                                 <th class="text-center align-middle py-1">No</th>
                                 <th class="text-center align-middle py-1">Date Created</th>
                                 <th class="text-center align-middle py-1">Ref. Code</th>
-                                <th class="text-center align-middle py-1">Client</th>
+                                <th class="text-center align-middle py-1">Customer</th>
                                 <th class="text-center align-middle py-1">Status</th>
                                 <th class="text-center align-middle py-1">Total Amount</th>
                             </tr>
@@ -66,7 +66,7 @@
                                     <td class="text-center align-middle px-2 py-1"><?php echo $i++; ?></td>
                                     <td class="align-middle px-2 py-1"><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
                                     <td class="align-middle px-2 py-1"><?= $row['code'] ?></td>
-                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['ccode'].' - '.$row['client']) ?></td>
+                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['ccode'].' - '.$row['customer']) ?></td>
                                     <td class="text-center align-middle px-2 py-1">
                                         <?php 
                                             switch($row['status']){
