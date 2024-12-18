@@ -2,7 +2,7 @@
 require_once('./../../config.php');
 
 if (isset($_GET['id']) && $_GET['id'] > 0) {
-    $qry = $conn->query("SELECT * FROM `category_list` WHERE id = '{$_GET['id']}' AND delete_flag = 0");
+    $qry = $conn->query("SELECT * FROM `category` WHERE id = '{$_GET['id']}' AND delete_flag = 0");
     if ($qry->num_rows > 0) {
         foreach ($qry->fetch_assoc() as $k => $v) {
             $$k = $v;
