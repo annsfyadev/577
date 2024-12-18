@@ -274,7 +274,7 @@ Class Users extends DBConnection {
 			$prefix = date('Ym-');
 			$code = sprintf("%'.05d",1);
 			while(true){
-				$check = $this->conn->query("SELECT * FROM `client_list` where code = '{$prefix}{$code}'")->num_rows;
+				$check = $this->conn->query("SELECT * FROM `customer` where code = '{$prefix}{$code}'")->num_rows;
 				if($check > 0){
 					$code = sprintf("%'.05d",ceil($code) + 1);
 				}else{
@@ -285,7 +285,7 @@ Class Users extends DBConnection {
 		}
 		extract($_POST);
 		if(isset($oldpassword) && !empty($id)){
-			$current_pass = $this->conn->query("SELECT * FROM `client_list` where id = '{$id}'")->fetch_array()['password'];
+			$current_pass = $this->conn->query("SELECT * FROM `customer` where id = '{$id}'")->fetch_array()['password'];
 			if(md5($oldpassword) != $current_pass){
 				$resp['status'] = 'failed';
 				$resp['msg'] = ' Incorrect Current Password';
@@ -301,15 +301,15 @@ Class Users extends DBConnection {
 				$data.="`{$k}`='{$v}'";
 			}
 		}
-		$check  = $this->conn->query("SELECT * FROM `client_list` where email = '{$email}' and delete_flag = 0 ".(!empty($id) ? " and id !='{$id}'" : ''))->num_rows;
+		$check  = $this->conn->query("SELECT * FROM `customer` where email = '{$email}' and delete_flag = 0 ".(!empty($id) ? " and id !='{$id}'" : ''))->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
 			$resp['msg'] = " Email already exists";
 		}else{
 			if(empty($id)){
-				$sql = "INSERT INTO `client_list` set {$data}";
+				$sql = "INSERT INTO `customer` set {$data}";
 			}else{
-				$sql = "UPDATE `client_list` set {$data} where id = '{$id}'";
+				$sql = "UPDATE `customer` set {$data} where id = '{$id}'";
 			}
 			$save = $this->conn->query($sql);
 			if($save){
@@ -319,13 +319,13 @@ Class Users extends DBConnection {
 					if(strpos($_SERVER['HTTP_REFERER'], 'client/register.php') > -1){
 						$resp['msg'] = " Your account has been registered successfully.";
 					}else{
-						$resp['msg'] = " Client's Account has been registered successfully.";
+						$resp['msg'] = " Customer's Account has been registered successfully.";
 					}
 				}else{
 					if($this->settings->userdata('login_type') == 3){
 						$resp['msg'] = " Your account details has been updated successfully.";
 					}else{
-						$resp['msg'] = " Client's Account Details has been updated successfully.";
+						$resp['msg'] = " Customer's Account Details has been updated successfully.";
 					}	
 				}
 
@@ -356,7 +356,7 @@ Class Users extends DBConnection {
 								imagedestroy($gdImg);
 								imagedestroy($t_image);
 								if($uploaded_img){
-									$qry = $this->conn->query("UPDATE `client_list` set avatar = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$vid' ");
+									$qry = $this->conn->query("UPDATE `customer` set avatar = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$vid' ");
 									if($this->settings->userdata('id') == $id && $this->settings->userdata('login_type') == 2)
 										$this->settings->set_userdata('avatar',$fname."?v=".(time()));
 								}
@@ -379,9 +379,9 @@ Class Users extends DBConnection {
 	}
 	public function delete_client(){
 		extract($_POST);
-		$qry = $this->conn->query("UPDATE client_list set delete_flag = 1 where id = $id");
+		$qry = $this->conn->query("UPDATE customer set delete_flag = 1 where id = $id");
 		if($qry){
-			$this->settings->set_flashdata('success',' Client Details successfully deleted.');
+			$this->settings->set_flashdata('success',' Customer Details successfully deleted.');
 			$resp['status'] = 'success';
 		}else{
 			$resp['status'] = 'failed';
