@@ -132,15 +132,15 @@ Class Master extends DBConnection {
 				$data .= " `{$k}`='{$this->conn->real_escape_string($v)}' ";
 			}
 		}
-		$check = $this->conn->query("SELECT * FROM `product_list` where vendor_id = '{$vendor_id}' and `name` = '{$name}' and delete_flag = 0 ".(!empty($id) ? " and id != '{$id}'" : ""))->num_rows;
+		$check = $this->conn->query("SELECT * FROM `resources` where seller_id = '{$seller_id}' and `name` = '{$name}' and delete_flag = 0 ".(!empty($id) ? " and id != '{$id}'" : ""))->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = ' Product Name already exists.';
+			$resp['msg'] = ' Resources Name already exists.';
 		}else{
 			if(empty($id)){
-				$sql = "INSERT INTO `product_list` set {$data} ";
+				$sql = "INSERT INTO `resources` set {$data} ";
 			}else{
-				$sql = "UPDATE `product_list` set {$data} where id = '{$id}' ";
+				$sql = "UPDATE `resources` set {$data} where id = '{$id}' ";
 			}
 			$save = $this->conn->query($sql);
 			if($save){
@@ -148,9 +148,9 @@ Class Master extends DBConnection {
 				$resp['pid'] = $pid;
 				$resp['status'] = 'success';
 				if(empty($id))
-					$resp['msg'] = " New Product successfully saved.";
+					$resp['msg'] = " New resources successfully saved.";
 				else
-					$resp['msg'] = " Product successfully updated.";
+					$resp['msg'] = " Resources successfully updated.";
 				
 				if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 					if(!is_dir(base_app."uploads/products"))
@@ -180,7 +180,7 @@ Class Master extends DBConnection {
 								imagedestroy($gdImg);
 								imagedestroy($t_image);
 								if(isset($uploaded_img) && $uploaded_img == true){
-									$qry = $this->conn->query("UPDATE `product_list` set image_path = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$pid' ");
+									$qry = $this->conn->query("UPDATE `resources` set image_path = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$pid' ");
 								}
 						}else{
 						$resp['msg']=" But Image failed to upload due to unkown reason.";
@@ -191,9 +191,9 @@ Class Master extends DBConnection {
 			}else{
 				$resp['status'] = 'failed';
 				if(empty($id))
-					$resp['msg'] = " Product has failed to save.";
+					$resp['msg'] = " Resources has failed to save.";
 				else
-					$resp['msg'] = " Product has failed to update.";
+					$resp['msg'] = " Resources has failed to update.";
 				$resp['err'] = $this->conn->error."[{$sql}]";
 			}
 		}
