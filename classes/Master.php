@@ -358,7 +358,7 @@ Class Master extends DBConnection {
 	}
 	function update_status(){
 		extract($_POST);
-		$update = $this->conn->query("UPDATE `order_list` set `status` = '{$status}' where id = '{$id}'");
+		$update = $this->conn->query("UPDATE `order` set `status` = '{$status}' where id = '{$id}'");
 		if($update){
 			$resp['status'] = 'success';
 			$resp['msg'] = " Order Status has been updated successfully.";
