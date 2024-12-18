@@ -35,7 +35,7 @@
 
 <div class="card card-outline teal-top card-primary">
     <div class="card-header">
-        <h3 class="card-title">List of Users</h3>
+        <h3 class="card-title">List of Customers</h3>
     </div>
     <div class="card-body">
         <div class="container-fluid">
@@ -63,11 +63,11 @@
                 <tbody>
                     <?php 
                     $i = 1;
-                    $qry = $conn->query("SELECT *, CONCAT(lastname, ', ', firstname, ' ', COALESCE(middlename)) AS `name` FROM `client_list` WHERE delete_flag = 0 ORDER BY CONCAT(lastname, ', ', firstname, ' ', COALESCE(middlename)) ASC");
+                    $qry = $conn->query("SELECT *, CONCAT(lastname, ', ', firstname, ' ', COALESCE(middlename)) AS `name` FROM `customer` WHERE delete_flag = 0 ORDER BY CONCAT(lastname, ', ', firstname, ' ', COALESCE(middlename)) ASC");
                     while ($row = $qry->fetch_assoc()): ?>
                         <tr>
                             <td class="text-center"><?php echo $i++; ?></td>
-                            <td class="text-center"><img src="<?php echo validate_image($row['avatar']); ?>" class="img-avatar img-thumbnail p-0 border-2" alt="client_avatar"></td>
+                            <td class="text-center"><img src="<?php echo validate_image($row['avatar']); ?>" class="img-avatar img-thumbnail p-0 border-2" alt="customer_avatar"></td>
                             <td class="text-center"><?php echo ($row['code']); ?></td>
                             <td class="text-center"><?php echo ucwords($row['name']); ?></td>
                             <td class="text-center"><?php echo ucwords($row['email']); ?></td>
