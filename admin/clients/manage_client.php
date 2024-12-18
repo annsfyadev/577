@@ -2,18 +2,18 @@
 
 <?php 
 if(isset($_GET['id'])){
-	$client = $conn->query("SELECT * FROM client_list where id ='".$_GET['id']."'");
+	$client = $conn->query("SELECT * FROM customer where id ='".$_GET['id']."'");
 	if($client->num_rows > 0){
 		$res = $client->fetch_array();
 		foreach($res as $k =>$v){
 			$$k = $v;
 		}
 	}else{
-		echo '<script> alert("Unknown Client"); location.replace("./?page=clients")</script>';
+		echo '<script> alert("Unknown Customer"); location.replace("./?page=clients")</script>';
 	}
 
 }else{
-	echo '<script> alert("Unknown Client"); location.replace("./?page=clients")</script>';
+	echo '<script> alert("Unknown Customer"); location.replace("./?page=clients")</script>';
 }
 ?>
 <?php if($_settings->chk_flashdata('success')): ?>
