@@ -23,8 +23,8 @@
                     </div>
                     <?php 
                     $gtotal = 0;
-                    $vendors = $conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
-                    while($vrow=$vendors->fetch_assoc()):    
+                    $seller = $conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
+                    while($vrow=$seller->fetch_assoc()):    
                     $vtotal = $conn->query("SELECT sum(c.quantity * p.price) FROM `cart` c inner join resources p on c.resources_id = p.id where c.customer_id = '{$_settings->userdata('id')}' and p.seller_id = '{$vrow['id']}'")->fetch_array()[0];   
                     $vtotal = $vtotal > 0 ? $vtotal : 0;
                     $gtotal += $vtotal;
