@@ -1,7 +1,7 @@
 <?php
 require_once('./../../config.php');
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT * from `product_list` where id = '{$_GET['id']}' and delete_flag = 0 ");
+    $qry = $conn->query("SELECT * from `resources` where id = '{$_GET['id']}' and delete_flag = 0 ");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
@@ -38,7 +38,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<select type="text" id="category_id" name="category_id" class="form-control form-control-sm form-control-border select2" required>
 							<option value="" disabled <?= !isset($category_id) ? 'selected' : "" ?>></option>
 							<?php 
-							$categories = $conn->query("SELECT * FROM `category_list` where delete_flag = 0 and `status` = 1 and vendor_id= '{$_settings->userdata('id')}' ".(isset($category_id) ? " or id = '{$category_id}' " : '')." order by `name` asc ");
+							$categories = $conn->query("SELECT * FROM `category` where delete_flag = 0 and `status` = 1 and vendor_id= '{$_settings->userdata('id')}' ".(isset($category_id) ? " or id = '{$category_id}' " : '')." order by `name` asc ");
 							while($row = $categories->fetch_assoc()):
 							?>
 							<option value="<?= $row['id'] ?>" <?= isset($category_id) && $category_id == $row['id'] ? 'selected': '' ?>><?= $row['name'] ?></option>
