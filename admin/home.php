@@ -19,7 +19,7 @@
         <span class="info-box-text">Total Categories</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM category_list where delete_flag = 0 ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM category where delete_flag = 0 ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -52,10 +52,10 @@
       <span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-boxes"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">Total Products</span>
+        <span class="info-box-text">Total Resources</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM product_list where delete_flag = 0 ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM resources where delete_flag = 0 ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -73,7 +73,7 @@
         <span class="info-box-text">Sellers</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM vendor_list where delete_flag = 0 ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM seller where delete_flag = 0 ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -90,7 +90,7 @@
         <span class="info-box-text">Users</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM client_list where delete_flag = 0 ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM customer where delete_flag = 0 ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
@@ -108,7 +108,7 @@
         <span class="info-box-text">Total Pending Orders</span>
         <span class="iinfo-box-number text-right h4">
           <?php 
-            $total = $conn->query("SELECT count(id) as total FROM order_list where `status` = 0 ")->fetch_assoc()['total'];
+            $total = $conn->query("SELECT count(id) as total FROM order where `status` = 0 ")->fetch_assoc()['total'];
             echo format_num($total);
           ?>
           <?php ?>
