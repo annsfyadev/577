@@ -204,7 +204,7 @@ Class Master extends DBConnection {
 	}
 	function delete_product(){
 		extract($_POST);
-		$del = $this->conn->query("UPDATE `product_list` set `delete_flag` = 1 where id = '{$id}'");
+		$del = $this->conn->query("UPDATE `resources` set `delete_flag` = 1 where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
 			$this->settings->set_flashdata('success'," Product successfully deleted.");
