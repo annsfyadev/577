@@ -3,8 +3,8 @@ require_once('./../../config.php');
 
 if (isset($_GET['id']) && $_GET['id'] > 0) {
     $qry = $conn->query("SELECT p.*, c.name as `category` 
-                          FROM `product_list` p 
-                          INNER JOIN category_list c ON p.category_id = c.id 
+                          FROM `resources` p 
+                          INNER JOIN category c ON p.category_id = c.id 
                           WHERE p.id = '{$_GET['id']}' AND p.delete_flag = 0");
 
     if ($qry->num_rows > 0) {
