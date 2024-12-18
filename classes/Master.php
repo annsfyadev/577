@@ -281,13 +281,13 @@ Class Master extends DBConnection {
 		$inserted=[];
 		$has_failed=false;
 		$gtotal = 0;
-		$vendors = $this->conn->query("SELECT * FROM `vendor_list` where id in (SELECT vendor_id from product_list where id in (SELECT product_id FROM `cart_list` where client_id ='{$this->settings->userdata('id')}')) order by `shop_name` asc");
+		$vendors = $this->conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$this->settings->userdata('id')}')) order by `shop_name` asc");
 		$prefix = date('Ym-');
 		$code = sprintf("%'.05d",1);
 		while($vrow = $vendors->fetch_assoc()):
 			$data = "";
 			while(true){
-				$check = $this->conn->query("SELECT * FROM order_list where code = '{$prefix}{$code}' ")->num_rows;
+				$check = $this->conn->query("SELECT * FROM order where code = '{$prefix}{$code}' ")->num_rows;
 				if($check > 0){
 					$code = sprintf("%'.05d",ceil($code) + 1);
 				}else{
@@ -296,24 +296,24 @@ Class Master extends DBConnection {
 			}
 			$ref_code = $prefix.$code;
 			$data = "('{$ref_code}','{$this->settings->userdata('id')}','{$vrow['id']}','{$this->conn->real_escape_string($delivery_address)}')";
-			$sql = "INSERT INTO `order_list` (`code`,`client_id`,`vendor_id`,`delivery_address`) VALUES {$data}";
+			$sql = "INSERT INTO `order` (`code`,`customer_id`,`seller_id`,`delivery_address`) VALUES {$data}";
 			$save = $this->conn->query($sql);
 			if($save){
 				$oid = $this->conn->insert_id;
 				$inserted[] = $oid;
 				$data = "";
 				$gtotal = 0 ;
-				$products = $this->conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$this->settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
+				$products = $this->conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart` c inner join resources p on c.resources_id = p.id where c.customer_id = '{$this->settings->userdata('id')}' and p.seller_id = '{$vrow['id']}' order by p.name asc");
 				while($prow = $products->fetch_assoc()):
 					$total = $prow['price'] * $prow['quantity'];
 					$gtotal += $total;
 					if(!empty($data)) $data .= ", ";
-						$data .= "('{$oid}', '{$prow['product_id']}', '{$prow['quantity']}', '{$prow['price']}')";
+						$data .= "('{$oid}', '{$prow['resources_id']}', '{$prow['quantity']}', '{$prow['price']}')";
 				endwhile;
-				$sql2 = "INSERT INTO `order_items` (`order_id`,`product_id`,`quantity`,`price`) VALUES {$data}";
+				$sql2 = "INSERT INTO `order_items` (`order_id`,`resources_id`,`quantity`,`price`) VALUES {$data}";
 				$save2= $this->conn->query($sql2);
 				if($save2){
-					$this->conn->query("UPDATE `order_list` set `total_amount` = '{$gtotal}' where id = '{$oid}'");
+					$this->conn->query("UPDATE `order` set `total_amount` = '{$gtotal}' where id = '{$oid}'");
 				}else{
 					$has_failed = true;
 					$resp['sql'] = $sql2;
@@ -328,13 +328,13 @@ Class Master extends DBConnection {
 		if(!$has_failed){
 			$resp['status'] = 'success';
 			$resp['msg'] = " Order has been placed";
-			$this->conn->query("DELETE FROM `cart_list` where client_id ='{$this->settings->userdata('id')}'");
+			$this->conn->query("DELETE FROM `cart` where customer_id ='{$this->settings->userdata('id')}'");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['msg'] = " Order has failed to place";
 			$resp['error'] = $this->conn->error;
 			if(count($inserted) > 0){
-				$this->conn->query("DELETE FROM `order_list` where id in (".(implode(',',array_values($inserted))).") ");
+				$this->conn->query("DELETE FROM `order` where id in (".(implode(',',array_values($inserted))).") ");
 			}
 		}
 		if($resp['status'] == 'success')
@@ -344,7 +344,7 @@ Class Master extends DBConnection {
 	}
 	function cancel_order(){
 		extract($_POST);
-		$update = $this->conn->query("UPDATE `order_list` set `status` = 5 where id = '{$id}'");
+		$update = $this->conn->query("UPDATE `order` set `status` = 5 where id = '{$id}'");
 		if($update){
 			$resp['status'] = 'success';
 			$resp['msg'] = " Order has been cancelled successfully.";
