@@ -26,7 +26,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="container-fluid">
 	<form action="" id="product-form">
 		<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
-		<input type="hidden" name ="vendor_id" value="<?= $_settings->userdata('id') ?>">
+		<input type="hidden" name ="seller_id" value="<?= $_settings->userdata('id') ?>">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -38,7 +38,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<select type="text" id="category_id" name="category_id" class="form-control form-control-sm form-control-border select2" required>
 							<option value="" disabled <?= !isset($category_id) ? 'selected' : "" ?>></option>
 							<?php 
-							$categories = $conn->query("SELECT * FROM `category` where delete_flag = 0 and `status` = 1 and vendor_id= '{$_settings->userdata('id')}' ".(isset($category_id) ? " or id = '{$category_id}' " : '')." order by `name` asc ");
+							$categories = $conn->query("SELECT * FROM `category` where delete_flag = 0 and `status` = 1 and seller_id= '{$_settings->userdata('id')}' ".(isset($category_id) ? " or id = '{$category_id}' " : '')." order by `name` asc ");
 							while($row = $categories->fetch_assoc()):
 							?>
 							<option value="<?= $row['id'] ?>" <?= isset($category_id) && $category_id == $row['id'] ? 'selected': '' ?>><?= $row['name'] ?></option>
