@@ -281,10 +281,10 @@ Class Master extends DBConnection {
 		$inserted=[];
 		$has_failed=false;
 		$gtotal = 0;
-		$vendors = $this->conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$this->settings->userdata('id')}')) order by `shop_name` asc");
+		$seller = $this->conn->query("SELECT * FROM `seller` where id in (SELECT seller_id from resources where id in (SELECT resources_id FROM `cart` where customer_id ='{$this->settings->userdata('id')}')) order by `shop_name` asc");
 		$prefix = date('Ym-');
 		$code = sprintf("%'.05d",1);
-		while($vrow = $vendors->fetch_assoc()):
+		while($vrow = $seller->fetch_assoc()):
 			$data = "";
 			while(true){
 				$check = $this->conn->query("SELECT * FROM order where code = '{$prefix}{$code}' ")->num_rows;
