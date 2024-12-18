@@ -23,7 +23,7 @@
 <?php endif;?>
 <div class="card card-outline teal-top card-primary">
 	<div class="card-header">
-		<h3 class="card-title"> <b>List of Categories </b></h3>
+		<h3 class="card-title"> <b>List of Categories Resouces</b></h3>
 		<div class="card-tools">
 			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span> Create New</a>
 		</div>
