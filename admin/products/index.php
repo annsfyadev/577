@@ -101,16 +101,16 @@
 <script>
     $(document).ready(function() {
         $('#create_new').click(function() {
-            uni_modal('Add New Product', "products/manage_product.php", 'large');
+            uni_modal('Add New Resources', "products/manage_product.php", 'large');
         });
         $('.view_data').click(function() {
-            uni_modal('View Product Details', "products/view_product.php?id=" + $(this).attr('data-id'), 'large');
+            uni_modal('View Resources Details', "products/view_product.php?id=" + $(this).attr('data-id'), 'large');
         });
         $('.edit_data').click(function() {
-            uni_modal('Update Product', "products/manage_product.php?id=" + $(this).attr('data-id'), 'large');
+            uni_modal('Update Resources', "products/manage_product.php?id=" + $(this).attr('data-id'), 'large');
         });
         $('.delete_data').click(function() {
-            _conf("Are you sure to delete this product permanently?", "delete_product", [$(this).attr('data-id')]);
+            _conf("Are you sure to delete this Resources permanently?", "delete_product", [$(this).attr('data-id')]);
         });
         $('table th,table td').addClass('align-middle px-2 py-1');
         $('.table').dataTable();

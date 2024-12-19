@@ -9,7 +9,7 @@
 </style>
 
 <?php 
-$user = $conn->query("SELECT * FROM client_list where id ='".$_settings->userdata('id')."'");
+$user = $conn->query("SELECT * FROM customer where id ='".$_settings->userdata('id')."'");
 foreach($user->fetch_array() as $k =>$v){
 	$$k = $v;
 }
@@ -56,7 +56,7 @@ foreach($user->fetch_array() as $k =>$v){
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="contact" class="control-label">Contact #</label>
+                            <label for="contact" class="control-label">Contact</label>
                             <input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" value="<?= isset($contact) ? $contact : "" ?>" required>
                         </div>
                     </div>

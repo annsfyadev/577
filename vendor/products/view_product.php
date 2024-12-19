@@ -14,7 +14,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     } else {
         // If no product found
         ?>
-        <center>Unknown Product</center>
+        <center>Unknown Resources</center>
         <style>
             #uni_modal .modal-footer {
                 display: none;
@@ -54,16 +54,16 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     <!-- Outer Box for Product Information -->
     <div class="outer-box text-center">
         <img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" 
-             alt="Product Image" 
+             alt="Resources Image" 
              class="img-thumbnail p-0 bg-gradient-gray" 
              id="prod-img-view">
     </div>
 
     <!-- Outer Box for Product Details -->
     <div class="outer-box">
-        <h5>Product Details</h5>
+        <h5>Resources Details</h5>
         <dl>
-            <dt class="text-muted">Product</dt>
+            <dt class="text-muted">Resources</dt>
             <dd class="pl-3"><?= isset($name) ? $name : "" ?></dd>
             <dt class="text-muted">Category</dt>
             <dd class="pl-3"><?= isset($category) ? $category : "" ?></dd>

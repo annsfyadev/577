@@ -23,7 +23,7 @@
 </style>
 <div class="card card-outline teal-top card-primary">
 	<div class="card-header">
-		<h3 class="card-title"> <b> List of Products </b> </h3>
+		<h3 class="card-title"> <b> List of Resources </b> </h3>
 		<div class="card-tools">
 			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span> Create New</a>
 		</div>
@@ -101,16 +101,16 @@
 <script>
 	$(document).ready(function() {
 		$('#create_new').click(function() {
-			uni_modal('Add New Product', "products/manage_product.php", 'large');
+			uni_modal('Add New Resources', "products/manage_product.php", 'large');
 		});
 		$('.view_data').click(function() {
-			uni_modal('View Product Details', "products/view_product.php?id=" + $(this).attr('data-id'), 'large');
+			uni_modal('View Resources Details', "products/view_product.php?id=" + $(this).attr('data-id'), 'large');
 		});
 		$('.edit_data').click(function() {
-			uni_modal('Update Product', "products/manage_product.php?id=" + $(this).attr('data-id'), 'large');
+			uni_modal('Update Resources', "products/manage_product.php?id=" + $(this).attr('data-id'), 'large');
 		});
 		$('.delete_data').click(function() {
-			_conf("Are you sure to delete this product permanently?", "delete_product", [$(this).attr('data-id')]);
+			_conf("Are you sure to delete this resources permanently?", "delete_product", [$(this).attr('data-id')]);
 		});
 		$('table th, table td').addClass('align-middle px-2 py-1 text-center'); // Centering headers and cells
 		$('.table').dataTable();

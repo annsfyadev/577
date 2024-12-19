@@ -1,6 +1,6 @@
 <!--/*This is Admin Dshboard UI - Welcome Admin -->
 
-<h1 class="">Welcome Admin </h1>
+<h1 class="">Admin Dashboard </h1>
 <style>
   #cover-image{
     width:calc(100%);

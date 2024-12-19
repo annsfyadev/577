@@ -161,7 +161,7 @@ Class Master extends DBConnection {
 					$type = mime_content_type($upload);
 					$allowed = array('image/png','image/jpeg');
 					if(!in_array($type,$allowed)){
-						$resp['msg']=" Product list saved but Image failed due to invalid file type.";
+						$resp['msg']=" Resources list saved but Image failed due to invalid file type.";
 					}else{
 						
 				
@@ -207,7 +207,7 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("UPDATE `resources` set `delete_flag` = 1 where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success'," Product successfully deleted.");
+			$this->settings->set_flashdata('success'," Resources successfully deleted.");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -234,10 +234,10 @@ Class Master extends DBConnection {
 		$save = $this->conn->query($sql);
 		if($save){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Product has added to cart.";
+			$resp['msg'] = " Resources has added to cart.";
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = " The product has failed to add to the cart.";
+			$resp['msg'] = " The resources has failed to add to the cart.";
 			$resp['error'] = $this->conn->error. "[{$sql}]";
 		}
 		if($resp['status'] == 'success')
@@ -249,10 +249,10 @@ Class Master extends DBConnection {
 		$update_cart = $this->conn->query("UPDATE `cart` set `quantity` = '{$quantity}' where id = '{$cart_id}'");
 		if($update_cart){
 			$resp['status'] = 'success';
-			$resp['msg'] = ' Product Quantity has updated successfully';
+			$resp['msg'] = ' Resources Quantity has updated successfully';
 		}else{
 			$resp['status'] = 'success';
-			$resp['msg'] = ' Product Quantity has failed to update';
+			$resp['msg'] = ' Resources Quantity has failed to update';
 			$resp['error'] = $this->conn->error;
 		}
 		
