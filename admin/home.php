@@ -107,10 +107,10 @@
       <div class="info-box-content">
         <span class="info-box-text">Total Pending Orders</span>
         <span class="iinfo-box-number text-right h4">
-          <?php 
-            $total = $conn->query("SELECT count(id) as total FROM order where `status` = 0 ")->fetch_assoc()['total'];
+        <?php 
+            $total = $conn->query("SELECT count(id) as total FROM `order` WHERE `status` = 0")->fetch_assoc()['total'];
             echo format_num($total);
-          ?>
+        ?>
           <?php ?>
         </span>
       </div>
