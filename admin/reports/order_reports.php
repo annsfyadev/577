@@ -63,7 +63,7 @@
                                 <th class="text-center align-middle py-1">No. </th>
                                 <th class="text-center align-middle py-1">Date Created</th>
                                 <th class="text-center align-middle py-1">Ref. Code</th>
-                                <th class="text-center align-middle py-1">User</th>
+                                <th class="text-center align-middle py-1">Customer</th>
                                 <th class="text-center align-middle py-1">Seller</th>
                                 <th class="text-center align-middle py-1">Status</th>
                                 <th class="text-center align-middle py-1">Total Amount</th>
@@ -73,7 +73,7 @@
                             <?php 
                             $i = 1;
                             $total = 0;
-                            $orders = $conn->query("SELECT o.*,c.code as ccode, CONCAT(c.lastname, ', ',c.firstname,' ',COALESCE(c.middlename,'')) as client,concat(v.code, '-',v.shop_name) as vendor from `order_list` o inner join client_list c on o.client_id = c.id inner join vendor_list v on o.vendor_id = v.id where date_format(o.date_created,'%Y-%m') = '{$month}' order by unix_timestamp(o.date_created) desc ");
+                            $orders = $conn->query("SELECT o.*,c.code as ccode, CONCAT(c.lastname, ', ',c.firstname,' ',COALESCE(c.middlename,'')) as customer,concat(v.code, '-',v.shop_name) as seller from `order` o inner join customer c on o.customer_id = c.id inner join seller v on o.seller_id = v.id where date_format(o.date_created,'%Y-%m') = '{$month}' order by unix_timestamp(o.date_created) desc ");
                             while($row = $orders->fetch_assoc()):
                                 $total += $row['total_amount'];
                             ?>
@@ -81,8 +81,8 @@
                                     <td class="text-center align-middle px-2 py-1"><?php echo $i++; ?></td>
                                     <td class="align-middle px-2 py-1"><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
                                     <td class="align-middle px-2 py-1"><?= $row['code'] ?></td>
-                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['ccode'].' - '.$row['client']) ?></td>
-                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['vendor']) ?></td>
+                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['ccode'].' - '.$row['customer']) ?></td>
+                                    <td class="align-middle px-2 py-1"><?php echo ucwords($row['seller']) ?></td>
                                     <td class="text-center align-middle px-2 py-1">
                                         <?php 
                                             switch($row['status']){
